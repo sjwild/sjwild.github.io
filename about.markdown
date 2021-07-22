@@ -5,7 +5,7 @@ permalink: /about/
 ---
 
 # General
-I am a Senior Research and Policy Officer at the [Financial Consumer Agency of Canada](https://www.canada.ca/en/financial-consumer-agency.html). My cuurent interests include household finance, banking, economics, statistics/econometrics, data science, complex surveys, time series, and spatial statistics.  
+I am a Senior Research and Policy Officer at the [Financial Consumer Agency of Canada](https://www.canada.ca/en/financial-consumer-agency.html). My current interests include household finance, banking, economics, statistics/econometrics, data science, complex surveys, time series, and spatial statistics.  
 
 The views expressed in this site are my own. 
 
