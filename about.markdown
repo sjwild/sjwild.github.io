@@ -1,18 +1,14 @@
 ---
 layout: page
-title: About
+title: about me
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+# General
+I am a Senior Research and Policy Officer at the [Financial Consumer Agency of Canada](https://www.canada.ca/en/financial-consumer-agency.html). My cuurent interests include household finance, banking, economics, statistics/econometrics, data science, complex surveys, time series, and spatial statistics.  
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+The views expressed in this site are my own. 
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+# This site
+My plan is to make the source code and any underlying data available when possible. You should be able to find the source code [here](https://github.com/sjwild). 
 
-
-[jekyll-organization]: https://github.com/jekyll
