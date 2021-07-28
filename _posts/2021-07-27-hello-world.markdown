@@ -6,7 +6,7 @@ categories: jekyll update
 ---
 
 # Hello, world!
-If you search Google for a list of blogs related topics like statistics/econometrics, data science, surveys, R, Python, julia, you will find thousands. So do we need another blog devoted to these topics? No. Is that going to stop me from blogging about those topics? Also no.
+If you search Google for a list of blogs related topics like statistics/econometrics, data science, surveys, R, Python, Julia, you will find thousands. So do we need another blog devoted to these topics? No. Is that going to stop me from blogging about those topics? Also no.
 
 # What this blog is about
 This is a (mostly) technically-oriented blog about topics that interest me, such as spatial statistics, survey analysis, polling, time series, and other statistics/econometrics topics. My goal are to:
