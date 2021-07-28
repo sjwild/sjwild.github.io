@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "Hello, world!"
-date:   2021-07-17 21:30:40 -0400
-categories: jekyll update
+date:   2021-07-27 21:30:40 -0400
+categories: blog
 ---
 
 # Hello, world!
