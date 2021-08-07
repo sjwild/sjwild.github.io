@@ -116,7 +116,7 @@ scatter((δ_m, pollster_lab), xerror = (δ_m - δ_ll, δ_uu - δ_m), legend = fa
         left_margin = 10mm, bottom_margin = 15mm, size = (750, 500))
 vline!([0], lc = :orange, linestyle = :dot)
 title!("House effects, ALP: 2004-2007")
-annotate!(0.05, -0.3, StatsPlots.text("Source: pscl R package. Analysis by sjwild.github.io", :lower, :right, 8, :grey))
+annotate!(0.045, -0.3, StatsPlots.text("Source: pscl R package. Analysis by sjwild.github.io", :lower, :right, 8, :grey))
 xlabel!("Percent")
 xticks!([-0.02, -0.01, 0, 0.01, 0.02, 0.03, 0.04], ["-2", "-1", "0", "1", "2", "3", "4"])
 
@@ -207,7 +207,7 @@ scatter(can_polls.poll_date, can_polls.LPC, legend = false, mc = :red, size = (7
 plot!(xi_days_can, ξ_m_can, ribbon = (ξ_m_can - ξ_ll_can, ξ_uu_can - ξ_m_can), label = nothing, 
       fc = :red, lc = :red, lw = 2)
 title!("Latent voting intentions, LPC: 2015-2019")
-annotate!(xi_days_can[end], .20, StatsPlots.text("Source: Polls scraped from Wikipedia. Analysis by sjwild.github.io", :lower, :right, 8, :grey))
+annotate!(xi_days_can[end], .195, StatsPlots.text("Source: Polls scraped from Wikipedia. Analysis by sjwild.github.io", :lower, :right, 8, :grey))
 xlabel!("Date")
 yticks!([.25, .3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6], ["25", "30", "35", "40", "45", "50", "55", "60"])
 

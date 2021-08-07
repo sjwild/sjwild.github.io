@@ -6,7 +6,7 @@ categories: blog
 ---
 
 
-Rumour has it (okay, it's in the news) that there might be a federal election called soon. Inspired by Simon Jackman, Peter Ellis, and others, I've decided to try election forecasting for no other reason that I can.
+Rumour has it (okay, it's in the news) that there might be a federal election called soon. Inspired by Simon Jackman, Peter Ellis, and others, I've decided to try election forecasting for no other reason that I can. You can find the code for this post [here](https://github.com/sjwild/sjwild.github.io/tree/main/assets/2021-08-07-state-space-voter-intention).
 
 # First steps: Duplicate Jackman's model
 In his book, _Bayesian Analysis for the Social Sciences_, Simon Jackman shows how to run a simple model that "pools the polls" using a bayesian state-space model. Jackman's model lets us estimate the underlying latent voting intention that is measured by a bunch of noisy polls. In his book, Jackman demonstrates his model by running it on a single party.  The first step here is to duplicate Jackman's model.
@@ -66,7 +66,9 @@ reverse_pollster = Dict(value => key for (key, value) in pollster_dict)
 
 ```
 
-Now, we define our model. We are going to use Turing.jl, a probabilistic programming language that is native to Julia. More information about Turing is available [here](https://turing.ml/dev/).
+Now, we define our model. [Peter Ellis](http://freerangestats.info/blog/2017/06/24/oz-polls-statespace) and [Jeffrey B. Arnold](https://jrnold.github.io/bugs-examples-in-stan/campaign.html) have run versions of this model in R and Stan. 
+
+Instead of R and Stan, we are going to use Turing.jl, a probabilistic programming language that is native to Julia. More information about Turing is available [here](https://turing.ml/dev/).
 
 ```julia
 # Define model
@@ -99,7 +101,7 @@ end
 
 ``` 
 
-With our model defined, we input the data and run the model. It takes about 10 minutes on my laptop. At this stage, it is important to set our AD backend, otherwise the model will take much longer.
+With our model defined, we input the data and run the model. It takes about 10 minutes on my laptop. At this stage, it is important to set our AD backend, otherwise the model will take much longer. Turing defaults to forward diff AD, which is slow if you have a large number of parameters. 
 
 ```julia
 
@@ -116,8 +118,8 @@ pollster_id = df.pollster_id
 
 
 # Iterations
-n_adapt = 500
-n_iter = 500
+n_adapt = 750
+n_iter = 750
 n_chains = 4
 
 
@@ -133,7 +135,7 @@ chns = sample(model, NUTS(n_adapt, .8; max_depth = 12), MCMCThreads(), n_iter, n
 ```
 
 ## Plotting house effects
-Finally, we can post-processes the data, and produce plots similar to Jackman's. First, we produce our house effects. House effects are the bias of each polling firm--that is, how far off, on average, the polls are from the "true" latent voting intention. The Turing house effects are similar in magnitude to Jackman's, but not exact, and the credible intervals are smaller. This probably has to do with how I defined the model. For my purposes right now, that's good enough.
+Finally, we can post-process the data, and produce plots similar to Jackman's. First, we produce our house effects. House effects are the bias of each polling firm--that is, how far off, on average, the polls of a specific firm are from the "true" latent voting intention. The Turing house effects are similar in magnitude to Jackman's, but the credible intervals are smaller and the point estimates slightly greater in magnitude. This probably has to do with how I defined the model. For my purposes right now, that's good enough.
 
 ```julia
 # Extract house effects and plot
@@ -145,7 +147,7 @@ scatter((δ_m, pollster_lab), xerror = (δ_m - δ_ll, δ_uu - δ_m), legend = fa
         left_margin = 10mm, bottom_margin = 15mm)
 vline!([0], lc = :orange, linestyle = :dot)
 title!("House effects, ALP: 2004-2007")
-annotate!(0.05, -0.5, StatsPlots.text("Source: pscl R package. Analysis by sjwild.github.io", :lower, :right, 8, :grey))
+annotate!(0.045, -0.5, StatsPlots.text("Source: pscl R package. Analysis by sjwild.github.io", :lower, :right, 8, :grey))
 xlabel!("Percent")
 xticks!([-0.02, -0.01, 0, 0.01, 0.02, 0.03, 0.04], ["-2", "-1", "0", "1", "2", "3", "4"])
 
@@ -191,7 +193,7 @@ yticks!([0.35, 0.4, 0.45, 0.5, 0.55, 0.6], ["35", "40", "45", "50", "55", "60"])
 
 
 # Expanding the model to Canada
-Using similar code, we can use the model for Canada. In the code below, I load pre-cleaned polls and run the model for the Liberal Party of Canada.
+Using the same model, we can estimate vote intention for parties in Canada. In the code below, I load pre-cleaned polls scraped from Wikipedia and run the model for the Liberal Party of Canada.
 
 ```julia
 election_day_2015 = Date(2015, 10, 19)
@@ -244,12 +246,12 @@ end
 ξ_m_can = [quantile(ξ_can[:,i], 0.5) for i in 1:size(ξ_can, 2)]
 ξ_uu_can = [quantile(ξ_can[:,i], 0.975) for i in 1:size(ξ_can, 2)]
 
-sscatter(can_polls.poll_date, can_polls.LPC, legend = false, mc = :red, size = (750, 500),
+scatter(can_polls.poll_date, can_polls.LPC, legend = false, mc = :red, size = (750, 500),
         left_margin = 10mm, bottom_margin = 10mm, ylabel = "Vote intention (%)")
 plot!(xi_days_can, ξ_m_can, ribbon = (ξ_m_can - ξ_ll_can, ξ_uu_can - ξ_m_can), label = nothing, 
       fc = :red, lc = :red, lw = 2)
 title!("Latent voting intentions, LPC: 2015-2019")
-annotate!(xi_days_can[end], .20, StatsPlots.text("Source: pscl R package. Analysis by sjwild.github.io", :lower, :right, 8, :grey))
+annotate!(xi_days_can[end], .195, StatsPlots.text("Source: Polls scraped from Wikipedia. Analysis by sjwild.github.io", :lower, :right, 8, :grey))
 xlabel!("Date")
 yticks!([.25, .3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6], ["25", "30", "35", "40", "45", "50", "55", "60"])
 
@@ -270,7 +272,7 @@ xticks!([-0.075, -0.05, -0.025, 0, 0.025, 0.05], ["-7.5", "-5", "-2.5", "0", "2.
 
 ![alt text](https://github.com/sjwild/sjwild.github.io/raw/main/assets/2021-08-07-state-space-voter-intention/LPC_house_effects_2015_2019.png "House effects for polling firms estimating the vote share of the Liberal Party of Canada, 2015 - 2019.")
 
-That's the simple model. But to forecast in a multi-party system, we need to account for the fact that a party's change in support one day is correlated with the changes in support for the other parties. That will be the subject of my next post.
+That's the simple model. But to forecast in a multi-party system, we need to account for the fact that a party's change in support one day is correlated with the changes in support for the other parties. And, importantly, we need to extend the time frame beyond one election. That will be the subject of my next post.
 
 
 
