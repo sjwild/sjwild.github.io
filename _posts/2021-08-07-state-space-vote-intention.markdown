@@ -6,12 +6,12 @@ categories: blog
 ---
 
 
-Rumour has it (okay, it's in the news) that there might be a federal election called soon. Inspired by Simon Jackman, Peter Ellis, and others, I've decided to try election forecasting for no other reason that I can. You can find the code for this post [here](https://github.com/sjwild/sjwild.github.io/tree/main/assets/2021-08-07-state-space-voter-intention).
+Rumour has it (okay, it's in the news) that there might be a federal election called soon. Inspired by Simon Jackman, Peter Ellis, and others, I've decided to try election forecasting for no other reason than I can. You can find the code for this post [here](https://github.com/sjwild/sjwild.github.io/tree/main/assets/2021-08-07-state-space-voter-intention).
 
 # First steps: Duplicate Jackman's model
 In his book, _Bayesian Analysis for the Social Sciences_, Simon Jackman shows how to run a simple model that "pools the polls" using a bayesian state-space model. Jackman's model lets us estimate the underlying latent voting intention that is measured by a bunch of noisy polls. In his book, Jackman demonstrates his model by running it on a single party.  The first step here is to duplicate Jackman's model.
 
-First, we load the necessary Julia packages and do some data cleaning. Jackman's 'pscl' package is available in Julia, so we load it and prep the data.
+First, we load the necessary Julia packages and do some data cleaning. Jackman's 'pscl' R package is available in Julia, so we load it and prep the data.
 
 ```julia
 using Plots, StatsPlots
@@ -66,9 +66,7 @@ reverse_pollster = Dict(value => key for (key, value) in pollster_dict)
 
 ```
 
-Now, we define our model. [Peter Ellis](http://freerangestats.info/blog/2017/06/24/oz-polls-statespace) and [Jeffrey B. Arnold](https://jrnold.github.io/bugs-examples-in-stan/campaign.html) have run versions of this model in R and Stan. 
-
-Instead of R and Stan, we are going to use Turing.jl, a probabilistic programming language that is native to Julia. More information about Turing is available [here](https://turing.ml/dev/).
+Now, we define our model. [Peter Ellis](http://freerangestats.info/blog/2017/06/24/oz-polls-statespace) and [Jeffrey B. Arnold](https://jrnold.github.io/bugs-examples-in-stan/campaign.html) have run versions of this model in R and Stan. I happen to like using Julia and Turing as well, so we are going to use them. Turing.jl is a probabilistic programming language that is native to Julia. More information about Turing is available [here](https://turing.ml/dev/).
 
 ```julia
 # Define model
