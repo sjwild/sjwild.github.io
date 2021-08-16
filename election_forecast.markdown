@@ -8,7 +8,7 @@ Last updated: __August 15, 2021__
 
 This is my forecast for the Canadian 2021 federal election on Sepetember 20, 2021. I use polls listed on [Wikipedia](https://en.wikipedia.org/wiki/Opinion_polling_for_the_2021_Canadian_federal_election) to try estimate underlying vote intention for each party. The predictions for voting intention and seat count (that is, for the period after 2019-10-21, the date of 2019 Canadian election) assume that the polling errors are the same both pre- and post- 2019 election. That may or may not be true, but I suspect that polling errors are correlated between these periods.
 
-As of August 15, 2021, I forecast a LPC victory, with a 50% chance of a majority government. But its important to note that there is lots of time until the election, and things can shift easily. 
+As of August 15, 2021, I forecast a LPC victory. But it's important to note that there is lots of time until the election, and things can shift easily. 
 
 |**Party**    | **Vote share**  | **95% bounds**     |
 |-------------|:---------------:|:------------------:|
