@@ -13,7 +13,7 @@ In this post I'm going to cover state space model I am using to estimate latent 
 Full credit goes to [Peter Ellis](http://freerangestats.info/elections/nz-2017/combined.html), who made his code public. I've adapted it slightly to work here. Below I will break it down into sections and explain how each piece works.
 
 # Extending it beyond the 2019 election
-The first step is to extend the model so that we can forcast beyond the 2019 election. To do this, we're going to use the 2015-2019 period to estimate the house effects, and then we're going to use those house effects to estimate the post-2019 period. This is done with the following lines:
+The first step is to extend the model so that we can forecast beyond the 2019 election. To do this, we're going to use the 2015-2019 period to estimate the house effects, and then we're going to use those house effects to estimate the post-2019 period. This is done with the following lines:
 
 ```julia
     # empty containers
@@ -27,7 +27,7 @@ The first step is to extend the model so that we can forcast beyond the 2019 ele
 
 ```
 
-With these lines, we are establishing an empty container to hold our values. For the values one the first day and on the date of the 2019 election, we will input the final vote proportions rather than estimate them. We know these values, so we will make use of them.
+With these lines, we are establishing an empty container to hold our values. For the values on the first day and on the date of the 2019 election, we will input the final vote proportions rather than estimate them. We know these values, so we will make use of them.
 
 In the code chunk below, we run a series of for loops for each party to set up our random walk. We use the values from the previous day, plus some random error, as the value for the next day. Because we have two periods, we do two separate loops, one for the period between the 2015 and 2019 elections, and the other for the post-2019 period.
 
@@ -116,7 +116,7 @@ To account for the correlated changes in vote share, we need both a party-specif
 
 
 # Putting it all together
-Here is the code for the model itself. The full script, including the code to scrape the polls from wikipedia, is [here](https://github.com/sjwild/sjwild.github.io/raw/main/assets/2021-08-25state-space-model-2021-election.jl).
+Here is the code for the model itself. The full script, including the code to scrape the polls from Wikipedia, is [here](https://github.com/sjwild/sjwild.github.io/raw/main/assets/2021-08-25state-space-model-2021-election.jl).
 
 ```julia
 
