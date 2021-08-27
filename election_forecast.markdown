@@ -4,7 +4,7 @@ title: 2021 election forecast
 permalink: /election-forecast/
 ---
 
-Last updated: __August 24, 2021__
+Last updated: __August 27, 2021__
 
 This is my forecast for the Canadian 2021 federal election on Sepetember 20, 2021. I use polls listed on [Wikipedia](https://en.wikipedia.org/wiki/Opinion_polling_for_the_2021_Canadian_federal_election) to try estimate underlying vote intention for each party. The predictions for voting intention and seat count (that is, for the period after 2019-10-21, the date of 2019 Canadian election) assume that the polling errors are the same both pre- and post- 2019 election. That may or may not be true, but I suspect that polling errors are correlated between these periods.
 
