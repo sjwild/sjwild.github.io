@@ -499,14 +499,7 @@ df <- df %>%
          NY.GDP.PCAP.CD_gmc = log(NY.GDP.PCAP.CD) - NY.GDP.PCAP.CD_grandmean,
          SI.POV.GINI_gmc = SI.POV.GINI - SI.POV.GINI_grandmean,
          SP.DYN.TFRT.IN_gmc = SP.DYN.TFRT.IN - SP.DYN.TFRT.IN_grandmean) %>%
-  ungroup() %>%
-  mutate(Smartphone_grandmean = Smartphone_grandmean - mean(Smartphone_grandmean),
-         Internet_grandmean = Internet_grandmean - mean(Internet_grandmean),
-         SL.UEM.TOTL.ZS_grandmean = SL.UEM.TOTL.ZS_grandmean - mean(SL.UEM.TOTL.ZS_grandmean),
-         NY.GDP.MKTP.CD_grandmean = NY.GDP.MKTP.CD_grandmean - mean(NY.GDP.MKTP.CD_grandmean),
-         NY.GDP.PCAP.CD_grandmean = NY.GDP.PCAP.CD_grandmean - mean(NY.GDP.PCAP.CD_grandmean),
-         SI.POV.GINI_grandmean = SI.POV.GINI_grandmean - mean(SI.POV.GINI_grandmean),
-         SP.DYN.TFRT.IN_grandmean = SP.DYN.TFRT.IN_grandmean - mean(SP.DYN.TFRT.IN_grandmean))
+  ungroup() 
 
 # apply baseline centering
 df <- df %>%
@@ -515,7 +508,7 @@ df <- df %>%
          Internet_2012 = dplyr::first(Internet, order_by = year),
          SL.UEM.TOTL.ZS_2012 = dplyr::first(SL.UEM.TOTL.ZS, order_by = year),
          NY.GDP.MKTP.CD_2012 = dplyr::first(log(NY.GDP.MKTP.CD), order_by = year),
-         NY.GDP.MKTP.CD_2012_unlogged = dplyr::first(NY.GDP.MKTP.CD, order_by = year) / 1e10,
+         NY.GDP.MKTP.CD_2012_unlogged = dplyr::first(NY.GDP.MKTP.CD, order_by = year) / 1e9,
          NY.GDP.PCAP.CD_2012 = dplyr::first(log(NY.GDP.PCAP.CD), order_by = year),
          SI.POV.GINI_2012 = dplyr::first(SI.POV.GINI, order_by = year),
          SP.DYN.TFRT.IN_2012 = dplyr::first(SP.DYN.TFRT.IN, order_by = year),
@@ -523,7 +516,7 @@ df <- df %>%
          Internet_tc = Internet - Internet_2012,
          SL.UEM.TOTL.ZS_tc = SL.UEM.TOTL.ZS - SL.UEM.TOTL.ZS_2012,
          NY.GDP.MKTP.CD_tc = log(NY.GDP.MKTP.CD) - NY.GDP.MKTP.CD_2012,
-         NY.GDP.MKTP.CD_tc_unlogged = (NY.GDP.MKTP.CD / 1e10) - NY.GDP.MKTP.CD_2012_unlogged,
+         NY.GDP.MKTP.CD_tc_unlogged = (NY.GDP.MKTP.CD / 1e9) - NY.GDP.MKTP.CD_2012_unlogged,
          NY.GDP.PCAP.CD_tc = log(NY.GDP.PCAP.CD) - NY.GDP.PCAP.CD_2012,
          SI.POV.GINI_tc = SI.POV.GINI - SI.POV.GINI_2012,
          SP.DYN.TFRT.IN_tc = SP.DYN.TFRT.IN - SP.DYN.TFRT.IN_2012) %>%
@@ -534,7 +527,7 @@ df <- df %>%
          NY.GDP.MKTP.CD_2012 = NY.GDP.MKTP.CD_2012 - mean(NY.GDP.MKTP.CD_2012),
          NY.GDP.MKTP.CD_2012_unlogged = NY.GDP.MKTP.CD_2012_unlogged - mean(NY.GDP.MKTP.CD_2012_unlogged),
          NY.GDP.PCAP.CD_2012 = NY.GDP.PCAP.CD_2012 - mean(NY.GDP.PCAP.CD_2012),
-         SI.POV.GINI_2012 = SI.POV.GINI_2012 - mean(SI.POV.GINI_2012),
+         SI.POV.GINI_2012 = SI.POV.GINI_2012 - mean(SI.POV.GINI_2012, na.rm = TRUE),
          SP.DYN.TFRT.IN_2012 = SP.DYN.TFRT.IN_2012 - mean(SP.DYN.TFRT.IN_2012))
 
 
@@ -749,7 +742,7 @@ summary(mod_sp_cwc2)
 
 
 
-mod_int_tc <- lme4::lmer(loneliness ~ 1 + Internet_tc + 
+mod_int_tc <- lmer(loneliness ~ 1 + Internet_tc + 
                       year +
                       SL.UEM.TOTL.ZS_tc +
                       NY.GDP.MKTP.CD_tc +
@@ -781,7 +774,7 @@ summary(mod_int_tc2)
 
 
 # baseline centered (2012 or 2015, as some countries are missing observations)
-mod_sp_tc <- lmer(loneliness ~ 1 + Smartphone_tc + 
+mod_sp_tc <- lme4::lmer(loneliness ~ 1 + Smartphone_tc + 
                      year +
                      SL.UEM.TOTL.ZS_tc +
                      NY.GDP.MKTP.CD_tc +
@@ -830,7 +823,7 @@ summary(mod_sp_tc3)
 
 
 
-mod_int_tc <- lmer(loneliness ~ 1 + Internet_tc + 
+mod_int_tc <- lme4::lmer(loneliness ~ 1 + Internet_tc + 
                        year +
                        SL.UEM.TOTL.ZS_tc +
                        NY.GDP.MKTP.CD_tc +
@@ -931,5 +924,154 @@ ggsave(filename = "example_smushed_effects_0_intercept.png",
        width = 750,
        units = "px",
        bg = "white")
+
+
+
+
+
+#### account for Missing data ####
+bform <- bf(loneliness ~ 1 + Smartphone_tc + 
+              year +
+              SL.UEM.TOTL.ZS_tc +
+              NY.GDP.PCAP.CD_tc +
+              mi(SI.POV.GINI_tc) + 
+              SP.DYN.TFRT.IN_tc + 
+              Smartphone_2012  +
+              SL.UEM.TOTL.ZS_2012 +
+              NY.GDP.PCAP.CD_2012 +
+              mi(SI.POV.GINI_2012) + 
+              SP.DYN.TFRT.IN_2012 + 
+              (1 + year | cnt)) +
+  bf(SI.POV.GINI_tc | mi() ~ year +
+       SL.UEM.TOTL.ZS_tc +
+       NY.GDP.PCAP.CD_tc + 
+       SP.DYN.TFRT.IN_tc) +
+  bf(SI.POV.GINI_2012 | mi() ~ year +
+       SL.UEM.TOTL.ZS_2012 +
+       NY.GDP.PCAP.CD_2012 + 
+       SP.DYN.TFRT.IN_2012)
+
+brm_sp_tc2 <- brm(bform,
+                  data = df,
+                  cores = 4,
+                  chains = 4,
+                  warmup = 2000,
+                  iter = 4000,
+                  control = list(adapt_delta = 0.95,
+                                 max_treedepth = 15),
+                  backend = "cmdstanr")
+summary(brm_sp_tc2)
+
+
+bform2 <- bf(loneliness ~ 1 + Smartphone_tc + 
+               Internet_tc +
+               year +
+               SL.UEM.TOTL.ZS_tc +
+               NY.GDP.PCAP.CD_tc +
+               mi(SI.POV.GINI_tc) + 
+               SP.DYN.TFRT.IN_tc + 
+               Smartphone_2012  +
+               Internet_2012 +
+               SL.UEM.TOTL.ZS_2012 +
+               NY.GDP.PCAP.CD_2012 +
+               mi(SI.POV.GINI_2012) + 
+               SP.DYN.TFRT.IN_2012 + 
+               (1 + year | cnt)) +
+  bf(SI.POV.GINI_tc | mi() ~ year +
+       SL.UEM.TOTL.ZS_tc +
+       NY.GDP.PCAP.CD_tc + 
+       SP.DYN.TFRT.IN_tc) +
+  bf(SI.POV.GINI_2012 | mi() ~ year +
+       SL.UEM.TOTL.ZS_2012 +
+       NY.GDP.PCAP.CD_2012 + 
+       SP.DYN.TFRT.IN_2012)
+
+brm_sp_tc3 <- brm(bform2,
+                  data = df,
+                  cores = 4,
+                  chains = 4,
+                  warmup = 2000,
+                  iter = 4000,
+                  backend = "cmdstanr")
+summary(brm_sp_tc3)
+
+bform3 <- bf(loneliness ~ 1 + Smartphone_tc + 
+               Internet_tc +
+               year +
+               SL.UEM.TOTL.ZS_tc +
+               NY.GDP.PCAP.CD_tc +
+               mi(SI.POV.GINI_tc) + 
+               SP.DYN.TFRT.IN_tc + 
+               Smartphone_2012  +
+               Internet_2012 +
+               SL.UEM.TOTL.ZS_2012 +
+               NY.GDP.PCAP.CD_2012 +
+               mi(SI.POV.GINI_2012) + 
+               SP.DYN.TFRT.IN_2012 + 
+               (1 + year + Smartphone_tc + Internet_tc | cnt)) +
+  bf(SI.POV.GINI_tc | mi() ~ year +
+       SL.UEM.TOTL.ZS_tc +
+       NY.GDP.PCAP.CD_tc + 
+       SP.DYN.TFRT.IN_tc) +
+  bf(SI.POV.GINI_2012 | mi() ~ year +
+       SL.UEM.TOTL.ZS_2012 +
+       NY.GDP.PCAP.CD_2012 + 
+       SP.DYN.TFRT.IN_2012)
+
+brm_sp_tc4 <- brm(bform3,
+                  data = df,
+                  cores = 4,
+                  chains = 4,
+                  warmup = 2000,
+                  iter = 4000,
+                  control = list(adapt_delta = 0.95),
+                  backend = "cmdstanr")
+summary(brm_sp_tc4)
+
+bform4 <- bf(loneliness ~ 1 + Smartphone_tc + 
+               year +
+               SL.UEM.TOTL.ZS_tc +
+               NY.GDP.PCAP.CD_tc +
+               mi(SI.POV.GINI_tc) + 
+               SP.DYN.TFRT.IN_tc + 
+               Smartphone_2012  +
+               Internet_2012 +
+               SL.UEM.TOTL.ZS_2012 +
+               NY.GDP.PCAP.CD_2012 +
+               mi(SI.POV.GINI_2012) + 
+               SP.DYN.TFRT.IN_2012 + 
+               (1 + year + Smartphone_tc | cnt)) +
+  bf(SI.POV.GINI_tc | mi() ~ year +
+       SL.UEM.TOTL.ZS_tc +
+       NY.GDP.PCAP.CD_tc + 
+       SP.DYN.TFRT.IN_tc) +
+  bf(SI.POV.GINI_2012 | mi() ~ year +
+       SL.UEM.TOTL.ZS_2012 +
+       NY.GDP.PCAP.CD_2012 + 
+       SP.DYN.TFRT.IN_2012)
+
+brm_sp_tc5 <- brm(bform4,
+                  data = df,
+                  cores = 4,
+                  chains = 4,
+                  warmup = 2000,
+                  iter = 4000,
+                  control = list(adapt_delta = 0.95),
+                  backend = "cmdstanr")
+summary(brm_sp_tc5)
+ran <- data.frame(coef(brm_sp_tc5))
+
+ggplot(ran) + 
+  geom_pointrange(mapping = aes(x = reorder(row.names(ran), 
+                                            cnt.Estimate.loneliness_Smartphone_tc), 
+                                y = cnt.Estimate.loneliness_Smartphone_tc, 
+                                ymin = cnt.Q2.5.loneliness_Smartphone_tc, 
+                                ymax = cnt.Q97.5.loneliness_Smartphone_tc)) + 
+  geom_hline(yintercept = 0, 
+             colour = "orange", 
+             linetype = 2) + 
+  coord_flip() + 
+  theme_blog
+
 
 

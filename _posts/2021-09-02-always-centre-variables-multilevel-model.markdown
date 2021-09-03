@@ -65,7 +65,7 @@ Moving on to Twenge et al. Let's take a look at their comprehensive model for th
 > mod_sp <- lmer(loneliness ~ 1 + Smartphone + 
                  year +
                  SL.UEM.TOTL.ZS +
-                 I(NY.GDP.MKTP.CD / 1e10) +
+                 I(NY.GDP.MKTP.CD / 1e9) +
                  SI.POV.GINI + 
                  SP.DYN.TFRT.IN + 
                  (1 + year | cnt),
@@ -73,32 +73,32 @@ Moving on to Twenge et al. Let's take a look at their comprehensive model for th
 > summary(mod_sp)
 
 Linear mixed model fit by REML ['lmerMod']
-Formula: loneliness ~ 1 + Smartphone + year + SL.UEM.TOTL.ZS + I(NY.GDP.MKTP.CD/1e+10) +  
+Formula: loneliness ~ 1 + Smartphone + year + SL.UEM.TOTL.ZS + I(NY.GDP.MKTP.CD/1e+09) +  
     SI.POV.GINI + SP.DYN.TFRT.IN + (1 + year | cnt)
    Data: df
 
-REML criterion at convergence: -71
+REML criterion at convergence: -66.4
 
 Scaled residuals: 
      Min       1Q   Median       3Q      Max 
--1.79360 -0.53023 -0.02428  0.51172  1.37118 
+-1.79365 -0.53021 -0.02431  0.51172  1.37116 
 
 Random effects:
  Groups   Name        Variance  Std.Dev. Corr
- cnt      (Intercept) 1.318e-02 0.114801     
-          year        5.884e-05 0.007671 0.02
- Residual             2.103e-03 0.045855     
+ cnt      (Intercept) 1.318e-02 0.11480      
+          year        5.882e-05 0.00767  0.02
+ Residual             2.103e-03 0.04586      
 Number of obs: 61, groups:  cnt, 24
 
 Fixed effects:
                           Estimate Std. Error t value
-(Intercept)              1.3885407  0.1793727   7.741
-Smartphone               0.0036840  0.0011172   3.298
-year                     0.0181475  0.0056562   3.208
-SL.UEM.TOTL.ZS          -0.0034440  0.0037136  -0.927
-I(NY.GDP.MKTP.CD/1e+10) -0.0005470  0.0003473  -1.575
-SI.POV.GINI              0.0083550  0.0044505   1.877
-SP.DYN.TFRT.IN          -0.0460839  0.0634102  -0.727
+(Intercept)              1.389e+00  1.794e-01   7.741
+Smartphone               3.684e-03  1.117e-03   3.297
+year                     1.815e-02  5.656e-03   3.209
+SL.UEM.TOTL.ZS          -3.444e-03  3.714e-03  -0.927
+I(NY.GDP.MKTP.CD/1e+09) -5.470e-05  3.473e-05  -1.575
+SI.POV.GINI              8.355e-03  4.450e-03   1.877
+SP.DYN.TFRT.IN          -4.608e-02  6.341e-02  -0.727
 
 Correlation of Fixed Effects:
             (Intr) Smrtph year   SL.UEM I(NY.G SI.POV
@@ -108,6 +108,8 @@ SL.UEM.TOTL -0.125 -0.023  0.366
 I(NY.GDP.MK  0.129  0.030 -0.002  0.137              
 SI.POV.GINI -0.594  0.198 -0.242 -0.345 -0.398       
 SP.DYN.TFRT -0.324 -0.016  0.129  0.347  0.055 -0.373
+fit warnings:
+Some predictor variables are on very different scales: consider rescaling
 
 
 
@@ -124,43 +126,43 @@ Warning message:
 Some predictor variables are on very different scales: consider rescaling 
 
 > summary(mod_int)
-Linear mixed model fit by maximum likelihood  ['lmerMod']
+
+Linear mixed model fit by REML ['lmerMod']
 Formula: loneliness ~ 1 + Internet + year + SL.UEM.TOTL.ZS + I(NY.GDP.MKTP.CD/1e+09) +  
     SI.POV.GINI + SP.DYN.TFRT.IN + (1 + year | cnt)
    Data: df
 
-     AIC      BIC   logLik deviance df.resid 
-  -109.9    -86.7     66.0   -131.9       50 
+REML criterion at convergence: -69.6
 
 Scaled residuals: 
      Min       1Q   Median       3Q      Max 
--1.96300 -0.46962 -0.02869  0.58109  1.76058 
+-1.77904 -0.45423 -0.00952  0.55724  1.67040 
 
 Random effects:
  Groups   Name        Variance  Std.Dev. Corr
- cnt      (Intercept) 8.200e-03 0.090551     
-          year        1.218e-05 0.003489 1.00
- Residual             2.656e-03 0.051540     
+ cnt      (Intercept) 1.056e-02 0.102743     
+          year        1.003e-05 0.003167 1.00
+ Residual             2.867e-03 0.053545     
 Number of obs: 61, groups:  cnt, 24
 
 Fixed effects:
                           Estimate Std. Error t value
-(Intercept)              1.562e+00  1.507e-01  10.363
-Internet                 7.123e-02  3.320e-02   2.145
-year                     1.797e-02  7.701e-03   2.333
-SL.UEM.TOTL.ZS          -3.172e-03  3.358e-03  -0.945
-I(NY.GDP.MKTP.CD/1e+09) -4.102e-05  3.139e-05  -1.307
-SI.POV.GINI              5.155e-03  3.922e-03   1.314
-SP.DYN.TFRT.IN          -3.638e-02  5.663e-02  -0.643
+(Intercept)              1.569e+00  1.626e-01   9.650
+Internet                 7.030e-02  3.512e-02   2.002
+year                     1.814e-02  8.130e-03   2.232
+SL.UEM.TOTL.ZS          -2.972e-03  3.628e-03  -0.819
+I(NY.GDP.MKTP.CD/1e+09) -4.400e-05  3.431e-05  -1.282
+SI.POV.GINI              4.903e-03  4.285e-03   1.144
+SP.DYN.TFRT.IN          -3.368e-02  6.175e-02  -0.546
 
 Correlation of Fixed Effects:
             (Intr) Intrnt year   SL.UEM I(NY.G SI.POV
-Internet    -0.584                                   
-year         0.464 -0.887                            
-SL.UEM.TOTL -0.173  0.022  0.215                     
-I(NY.GDP.MK  0.117  0.061 -0.038  0.155              
-SI.POV.GINI -0.443 -0.076  0.000 -0.358 -0.441       
-SP.DYN.TFRT -0.409  0.133 -0.040  0.377  0.101 -0.412
+Internet    -0.566                                   
+year         0.447 -0.890                            
+SL.UEM.TOTL -0.163  0.013  0.227                     
+I(NY.GDP.MK  0.118  0.061 -0.037  0.157              
+SI.POV.GINI -0.457 -0.074  0.000 -0.358 -0.437       
+SP.DYN.TFRT -0.405  0.121 -0.029  0.369  0.098 -0.407
 fit warnings:
 Some predictor variables are on very different scales: consider rescaling
 optimizer (nloptwrap) convergence code: 0 (OK)
@@ -186,7 +188,7 @@ Now let's center our variables at their first observed values. For most countrie
          Internet_2012 = dplyr::first(Internet, order_by = year),
          SL.UEM.TOTL.ZS_2012 = dplyr::first(SL.UEM.TOTL.ZS, order_by = year),
          NY.GDP.MKTP.CD_2012 = dplyr::first(log(NY.GDP.MKTP.CD), order_by = year),
-         NY.GDP.MKTP.CD_2012_unlogged = dplyr::first(NY.GDP.MKTP.CD, order_by = year) / 1e10,
+         NY.GDP.MKTP.CD_2012_unlogged = dplyr::first(NY.GDP.MKTP.CD, order_by = year) / 1e9,
          NY.GDP.PCAP.CD_2012 = dplyr::first(log(NY.GDP.PCAP.CD), order_by = year),
          SI.POV.GINI_2012 = dplyr::first(SI.POV.GINI, order_by = year),
          SP.DYN.TFRT.IN_2012 = dplyr::first(SP.DYN.TFRT.IN, order_by = year),
@@ -194,7 +196,7 @@ Now let's center our variables at their first observed values. For most countrie
          Internet_tc = Internet - Internet_2012,
          SL.UEM.TOTL.ZS_tc = SL.UEM.TOTL.ZS - SL.UEM.TOTL.ZS_2012,
          NY.GDP.MKTP.CD_tc = log(NY.GDP.MKTP.CD) - NY.GDP.MKTP.CD_2012,
-         NY.GDP.PCAP.CD_tc_unlogged = (NY.GDP.PCAP.CD / 1e10) - NY.GDP.MKTP.CD_2012_unlogged,
+         NY.GDP.PCAP.CD_tc_unlogged = (NY.GDP.PCAP.CD / 1e9) - NY.GDP.MKTP.CD_2012_unlogged,
          NY.GDP.PCAP.CD_tc = log(NY.GDP.PCAP.CD) - NY.GDP.PCAP.CD_2012,
          SI.POV.GINI_tc = SI.POV.GINI - SI.POV.GINI_2012,
          SP.DYN.TFRT.IN_tc = SP.DYN.TFRT.IN - SP.DYN.TFRT.IN_2012) %>%
@@ -289,7 +291,7 @@ Smrtph_2012
 SL.UEM.TOTL.ZS_2  0.275                                                
 NY.GDP.MKTP.CD_2 -0.045  0.042                                         
 SI.POV.GINI_2     0.072 -0.268           -0.293                        
-SP.DYN.TFRT.IN_2  0.095  0.413            0.015           -0.434           
+SP.DYN.TFRT.IN_2  0.095  0.413            0.015           -0.434          
 
 ```
 
@@ -313,7 +315,6 @@ We see a similar pattern with internet access: we get lower t-values when the pr
                          (1 + year | cnt),
                        data = df)
 > summary(mod_int_tc)
-
 
 Linear mixed model fit by REML ['lmerMod']
 Formula: loneliness ~ 1 + Internet_tc + year + SL.UEM.TOTL.ZS_tc + NY.GDP.MKTP.CD_tc +  
@@ -373,7 +374,7 @@ Intrnt_2012
 SL.UEM.TOTL.ZS_2  0.259                                                
 NY.GDP.MKTP.CD_2  0.294  0.173                                         
 SI.POV.GINI_2    -0.346 -0.371           -0.407                        
-SP.DYN.TFRT.IN_2  0.244  0.453            0.120           -0.488      
+SP.DYN.TFRT.IN_2  0.244  0.453            0.120           -0.488       
 
 
 ```
@@ -461,7 +462,7 @@ Smrtph_2012
 SL.UEM.TOTL.ZS_2  0.334                                                
 NY.GDP.PCAP.CD_2 -0.306 -0.278                                         
 SI.POV.GINI_2    -0.153 -0.380            0.687                        
-SP.DYN.TFRT.IN_2  0.218  0.487           -0.403           -0.568   
+SP.DYN.TFRT.IN_2  0.218  0.487           -0.403           -0.568     
 
 ```
 
@@ -535,12 +536,14 @@ Our model now has nearly as many predictors and random effects as there are obse
 
 
 # Final thoughts
-Twenge et al.'s mistake is common. The main multilevel modelling textbooks barely cover it (e.g., Snjiders & Bosker, 2011; ). They mention it briefly, and then rarely make use of it the rest of the book. 
+Twenge et al.'s mistake is common. The main multilevel modelling textbooks barely cover it (e.g., Snjiders & Bosker, 2011; Raudenbush & Bryk, 2002). They mention it briefly, and then rarely make use of it the rest of the book. 
 
 To be clear, I don't think that Twenge et al.'s model (or mine in this post) is appropriate for what they are trying to measure. There's too few observations, too many preditors, and variables that don't make sense (like gross GDP). By aggregating their data, they have a study that is underpowered and noisy.
 
+
 # References
 Below are a few references I've found helpful in using mixed effects models to model longitudinal data. In particular, I recommend Lesa Hoffman's _Longitudinal analysis: Modeling within-person fluctuation and change_. To understand group-mean centering, I also recommend the articles by Bell and coauthors. 
+
 
 ## Centering
 Bell, A., Fairbrother, M., & Jones, K. (2019). Fixed and random effects models: making an informed choice. _Quality & Quantity_, _53_(2), 1051-1074.
