@@ -24,10 +24,10 @@ In short, I am going to assume that everything was done correctly except for the
 
 You can find the code I used for my models [here](https://github.com/sjwild/sjwild.github.io/raw/main/assets/2021-09-02-always_centre-variables-multilevel-model/Load_and_Prep_PISA_data.R). If I am wrong, please tell me so I can correct it.
 
-# _Twenge et al_'s results
+# _Twenge et al._'s results
 In their final two models, Twenge et al. run a comprehensive model using smartphone access and internet usage as their treatment variables--that is, as their main variables of interest. Here is a copy of their results.
 
-![alt text](https://github.com/sjwild/sjwild.github.io/raw/main/assets/2021-09-02-always_centre-variables-multilevel-model/Table_4_Twenge_et_al.png "Image of Table 4 from Twenge et al..")
+![alt text](https://github.com/sjwild/sjwild.github.io/raw/main/assets/2021-09-02-always-centre-variables-multilevel-model/Table_4_Twenge_et_al.png "Image of Table 4 from Twenge et al..")
 
 In both their models, smartphone access and internet usage are statistically significant. Unfortunately, Twenge et al.'s model is misspecified, and their results showing smartphone access and internet usage are not significant once we make the requisite adjustments.
 
@@ -36,7 +36,7 @@ Multilevel models are loved in some fields (looking at you, education and psycho
 
 To see what I mean, take a look at the image below. In it, I have chosen three illustrative countries and their smartphone access. As you can see, there is a relationship between smartphone access in 2012 and the rate of smartphone access increases over time. Countries with lower rates of smartphone access increase at faster rates. That is, we can say that the intercept (initial smartphone access) is negatively correlated with the slope (change in access over time): in countries with higher initial smartphone access, smartphone access increases more slowly compared to countries with lower initial smartphone access. As a result, smartphone access coverges over time.
 
-![alt text](https://github.com/sjwild/sjwild.github.io/raw/main/assets/2021-09-02-always_centre-variables-multilevel-model/example_smushed_effects.png "Illustrative example showing slopes increase faster for lower intial rates of smartphone access")
+![alt text](https://github.com/sjwild/sjwild.github.io/raw/main/assets/2021-09-02-always-centre-variables-multilevel-model/example_smushed_effects.png "Illustrative example showing slopes increase faster for lower intial rates of smartphone access")
 
 Here is what is happening in our multilevel model. The model is trying to estimate the effect of smartphone access in two areas: within each country, and between each country. The problem is that the model has no way to separate these two effects. Therefore the coefficient ends up "smushed" (the technical term, according to Hoffman, 2015), and reflects both within country and between country effects.
 
@@ -55,7 +55,7 @@ With all three centering methods, it is common to add the group means as predict
 # What happens when we center our variables?
 As you can see in the image for our illustrative example below, one we remove the means for our baseline year, 2012, the slopes are not longer correlated with the values at year 0. The model can therefore pick up both within and between effects if me include the initial values in the model as well. Mission accomplished.
 
-![alt text](https://github.com/sjwild/sjwild.github.io/raw/main/assets/2021-08-25-always_centre-variables-multilevel-model/example_smushed_effects_0_intercept.png "Illustrative example showing intercept at zero")
+![alt text](https://github.com/sjwild/sjwild.github.io/raw/main/assets/2021-09-02-always-centre-variables-multilevel-model/example_smushed_effects_0_intercept.png "Illustrative example showing intercept at zero")
 
 # Modelling PISA data
 Moving on to Twenge et al. Let's take a look at their comprehensive model for the effect of smartphone access. I've done some data cleaning to try duplicate their coding, and I think I managed to get reasonably close to their results. 
@@ -118,8 +118,7 @@ SP.DYN.TFRT -0.324 -0.016  0.129  0.347  0.055 -0.373
                   SI.POV.GINI + 
                   SP.DYN.TFRT.IN + 
                   (1 + year | cnt),
-                data = df,
-                REML = FALSE)
+                data = df)
 boundary (singular) fit: see ?isSingular
 Warning message:
 Some predictor variables are on very different scales: consider rescaling 
@@ -173,11 +172,6 @@ boundary (singular) fit: see ?isSingular
 They made an interesting choice here with GDP. I think they took gross GDP and then divided by 1 billion. When I do so, I get coefficients that are similar. 
 
 If you look at the correlation of the fixed effects, you can see that they are -0.624 for smartphone access and -0.584 for internet usage. Those are pretty strong, and are good suggestions that our coefficients are biased.
-
-```r
-
-
-```
 
 
 ## Centering the variables
