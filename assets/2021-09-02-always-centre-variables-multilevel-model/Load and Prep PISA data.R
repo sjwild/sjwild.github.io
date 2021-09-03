@@ -747,20 +747,37 @@ mod_sp_cwc2 <- lmer(loneliness ~ 1 + Smartphone_cwc  +
                    data = df)
 summary(mod_sp_cwc2)
 
-mod_int_tc <- lmer(loneliness ~ 1 + Internet_tc + 
+
+
+mod_int_tc <- lme4::lmer(loneliness ~ 1 + Internet_tc + 
                       year +
                       SL.UEM.TOTL.ZS_tc +
-                      NY.GDP.PCAP.CD_tc +
+                      NY.GDP.MKTP.CD_tc +
                       SI.POV.GINI_tc + 
                       SP.DYN.TFRT.IN_tc + 
                       Internet_2012  +
                       SL.UEM.TOTL.ZS_2012 +
-                      NY.GDP.PCAP.CD_2012 +
+                      NY.GDP.MKTP.CD_2012 +
                       SI.POV.GINI_2012 + 
                       SP.DYN.TFRT.IN_2012 + 
                       (1 + year | cnt),
                     data = df)
 summary(mod_int_tc)
+
+mod_int_tc2 <- lmer(loneliness ~ 1 + Internet_tc + 
+                     year +
+                     SL.UEM.TOTL.ZS_tc +
+                     NY.GDP.PCAP.CD_tc +
+                     SI.POV.GINI_tc + 
+                     SP.DYN.TFRT.IN_tc + 
+                     Internet_2012  +
+                     SL.UEM.TOTL.ZS_2012 +
+                     NY.GDP.PCAP.CD_2012 +
+                     SI.POV.GINI_2012 + 
+                     SP.DYN.TFRT.IN_2012 + 
+                     (1 + year | cnt),
+                   data = df)
+summary(mod_int_tc2)
 
 
 # baseline centered (2012 or 2015, as some countries are missing observations)

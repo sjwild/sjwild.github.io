@@ -321,47 +321,47 @@ Formula: loneliness ~ 1 + Internet_tc + year + SL.UEM.TOTL.ZS_tc + NY.GDP.MKTP.C
     NY.GDP.MKTP.CD_2012 + SI.POV.GINI_2012 + SP.DYN.TFRT.IN_2012 +      (1 + year | cnt)
    Data: df
 
-REML criterion at convergence: -76.9
+REML criterion at convergence: -72.8
 
 Scaled residuals: 
      Min       1Q   Median       3Q      Max 
--1.91246 -0.32628  0.00531  0.36909  1.69720 
+-1.96459 -0.34791 -0.03333  0.37145  1.68167 
 
 Random effects:
  Groups   Name        Variance  Std.Dev. Corr 
- cnt      (Intercept) 0.0110192 0.104972      
-          year        0.0000671 0.008191 -0.15
- Residual             0.0017912 0.042322      
-Number of obs: 64, groups:  cnt, 27
+ cnt      (Intercept) 1.124e-02 0.10601       
+          year        7.691e-05 0.00877  -0.08
+ Residual             1.730e-03 0.04159       
+Number of obs: 61, groups:  cnt, 24
 
 Fixed effects:
                      Estimate Std. Error t value
-(Intercept)          1.349231   0.500870   2.694
-Internet_tc          0.031027   0.035271   0.880
-year                 0.027159   0.008416   3.227
-SL.UEM.TOTL.ZS_tc   -0.006414   0.006026  -1.064
-NY.GDP.MKTP.CD_tc   -0.297308   0.087193  -3.410
-SI.POV.GINI_tc      -0.003363   0.009978  -0.337
-SP.DYN.TFRT.IN_tc   -0.088345   0.116476  -0.758
-Internet_2012        0.053736   0.035371   1.519
-SL.UEM.TOTL.ZS_2012 -0.009263   0.004311  -2.149
-NY.GDP.MKTP.CD_2012  0.271992   0.085069   3.197
-SI.POV.GINI_2012     0.006674   0.004295   1.554
-SP.DYN.TFRT.IN_2012 -0.077442   0.066919  -1.157
+(Intercept)          1.797110   0.024049  74.728
+Internet_tc          0.040006   0.035844   1.116
+year                 0.025601   0.008544   2.996
+SL.UEM.TOTL.ZS_tc   -0.006334   0.006083  -1.041
+NY.GDP.MKTP.CD_tc   -0.302126   0.086721  -3.484
+SI.POV.GINI_tc      -0.003565   0.010082  -0.354
+SP.DYN.TFRT.IN_tc   -0.087549   0.117947  -0.742
+Internet_2012        0.090039   0.049641   1.814
+SL.UEM.TOTL.ZS_2012 -0.007012   0.004628  -1.515
+NY.GDP.MKTP.CD_2012 -0.016003   0.019074  -0.839
+SI.POV.GINI_2012     0.006421   0.004665   1.376
+SP.DYN.TFRT.IN_2012 -0.053932   0.070147  -0.769
 
 Correlation of Fixed Effects:
                  (Intr) Intrn_ year   SL.UEM.TOTL.ZS_t NY.GDP.MKTP.CD_t SI.POV.GINI_t SP.DYN.TFRT.IN_t
-Internet_tc       0.037                                                                               
-year              0.012 -0.883                                                                        
-SL.UEM.TOTL.ZS_t  0.302  0.042  0.217                                                                 
-NY.GDP.MKTP.CD_t  0.361  0.211 -0.155  0.570                                                          
-SI.POV.GINI_t    -0.227 -0.052 -0.027 -0.579           -0.506                                         
-SP.DYN.TFRT.IN_t  0.122  0.012  0.074  0.367            0.315           -0.319                        
-Intrnt_2012      -0.304  0.331 -0.341 -0.024            0.082           -0.090        -0.023          
-SL.UEM.TOTL.ZS_2 -0.247 -0.109  0.135  0.132            0.042           -0.046         0.007          
-NY.GDP.MKTP.CD_2 -0.530 -0.214  0.151 -0.577           -0.980            0.505        -0.315          
-SI.POV.GINI_2     0.222  0.114 -0.110 -0.008            0.043            0.043         0.052          
-SP.DYN.TFRT.IN_2 -0.257 -0.020  0.013 -0.056           -0.093            0.035         0.043          
+Internet_tc       0.128                                                                               
+year             -0.242 -0.883                                                                        
+SL.UEM.TOTL.ZS_t -0.013  0.048  0.212                                                                 
+NY.GDP.MKTP.CD_t  0.107  0.221 -0.164  0.566                                                          
+SI.POV.GINI_t    -0.035 -0.056 -0.025 -0.576           -0.498                                         
+SP.DYN.TFRT.IN_t -0.007  0.017  0.070  0.364            0.306           -0.307                        
+Intrnt_2012       0.059  0.300 -0.304 -0.007            0.086           -0.104        -0.001          
+SL.UEM.TOTL.ZS_2 -0.009 -0.055  0.085  0.114            0.039           -0.059         0.007          
+NY.GDP.MKTP.CD_2  0.031 -0.033 -0.003 -0.066            0.032            0.006        -0.016          
+SI.POV.GINI_2    -0.012  0.090 -0.088 -0.009            0.029            0.052         0.045          
+SP.DYN.TFRT.IN_2 -0.059  0.020 -0.022 -0.041           -0.071            0.012         0.037          
                  I_2012 SL.UEM.TOTL.ZS_2 NY.GDP.MKTP.CD_2 SI.POV.GINI_2
 Internet_tc                                                            
 year                                                                   
@@ -370,10 +370,10 @@ NY.GDP.MKTP.CD_t
 SI.POV.GINI_t                                                          
 SP.DYN.TFRT.IN_t                                                       
 Intrnt_2012                                                            
-SL.UEM.TOTL.ZS_2  0.148                                                
-NY.GDP.MKTP.CD_2 -0.036 -0.005                                         
-SI.POV.GINI_2    -0.310 -0.349           -0.109                        
-SP.DYN.TFRT.IN_2  0.123  0.422            0.112           -0.494    
+SL.UEM.TOTL.ZS_2  0.259                                                
+NY.GDP.MKTP.CD_2  0.294  0.173                                         
+SI.POV.GINI_2    -0.346 -0.371           -0.407                        
+SP.DYN.TFRT.IN_2  0.244  0.453            0.120           -0.488      
 
 
 ```
