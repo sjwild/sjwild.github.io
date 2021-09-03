@@ -22,7 +22,7 @@ title: Stephen Wild's site
 email: stephen.james.wild@gmail.com
 description: >-
   Stephen Wild's personal blog about statistics, data science, and the like.
-baseurl: "sjwild.github.io" 
+baseurl: ""
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 #twitter_username: 
 github_username:  sjwild
