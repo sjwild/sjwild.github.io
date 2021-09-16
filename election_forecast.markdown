@@ -4,40 +4,52 @@ title: 2021 election forecast
 permalink: /election-forecast/
 ---
 
-Last updated: __September 13, 2021__
+Last updated: __September 15, 2021__
 
 This is my forecast for the Canadian 2021 federal election on Sepetember 20, 2021. I use polls listed on [Wikipedia](https://en.wikipedia.org/wiki/Opinion_polling_for_the_2021_Canadian_federal_election) to try estimate underlying vote intention for each party. The predictions for voting intention and seat count (that is, for the period after 2019-10-21, the date of 2019 Canadian election) assume that the polling errors are the same both pre- and post- 2019 election. That may or may not be true, but I suspect that polling errors are correlated between these periods.
 
-As of September 11, 2021, The CPC are in the lead. But it's important to note that there is lots of time until the election, and things can shift easily. Estimated vote intention for September 20th was:
+Using polls up to and including September 13, 2021, the CPC and LPC are virtually tied. Estimated vote intention for September 20th was:
 
 |**Party**    | **Vote share**  | **95% bounds**     |
 |-------------|:---------------:|:------------------:|
-|**LPC**      | 33.2%           | (30.3%, 36.1%)     |
-|**CPC**      | 34.7%           | (32.2%, 37.2%)     |
-|**NDP**      | 17.6%           | (15.4%, 19.9%)     |
-|**BQ**       | 6.4%            | (5.5%, 7.2%)       |
-|**GPC**      | 2.2%            | (1.0%, 3.4%)       |
-|**Other**    | 6.1%            | (5.0%, 7.2%)       |
+|**LPC**      | 33.1%           | (30.6%, 35.4%)     |
+|**CPC**      | 33.4%           | (31.4%, 35.6%)     |
+|**NDP**      | 17.7%           | (15.8%, 19.5%)     |
+|**BQ**       | 7.0%            | (6.2%, 7.7%)       |
+|**GPC**      | 2.4%            | (1.3%, 3.5%)       |
+|**Other**    | 6.7%            | (5.8%, 7.7%)       |
 
 ![alt text](https://github.com/sjwild/Canandian_Election_2021/raw/main/can_vote_intention_on_election_date.png "Density plot of estimated vote share per party.")
 
-As we can see, vote share is shifting over time. The CPC is now in a narrow lead, with the LPC second.
+As we can see, vote share shifted over time. While the CPC held a narrow lead, they are now tied with the LPC.
 
-![alt text](https://github.com/sjwild/Canandian_Election_2021/raw/main/can_vote_intention_2019_2021.png "Vote share of Canadian parties from 2019 to 2021.")
+![alt text](https://github.com/sjwild/Canandian_Election_2021/raw/main/can_vote_intention_campaign_period.png "Vote share of Canadian parties during campaign period.")
 
 # Seat counts
 
-While I have projected an CPC victory, it is close. Based on 10,000 simulations, if the election were held today the most likely outcome is an CPC minority government. Based on my projections, the CPC has a 54% chance of winning.
+While I have projected an CPC victory, it is close. Based on 10,000 simulations, if the election were held today the most likely outcome is an LPC minority government. Based on my projections, the LPC has a 52% chance of winning.
 
-|**Party**    | **Seat count**  | **95% bounds**     |
-|-------------|:---------------:|:------------------:|
-|**LPC**      | 136             | (118, 152)         |
-|**CPC**      | 138             | (124, 154)         |
-|**NDP**      | 25              | (20, 30)           |
-|**BQ**       | 36              | (31, 40)           |
-|**GPC**      | 2               | (1, 3)             |
-|**Other**    | 1               | (0, 4)             |
+|**Party**    | **Projected seat count**  | **95% bounds**     |
+|-------------|:-------------------------:|:------------------:|
+|**LPC**      | 137                       | (93, 177)          |
+|**CPC**      | 134                       | (109, 170)         |
+|**NDP**      | 26                        | (17, 38)           |
+|**BQ**       | 38                        | (26, 44)           |
+|**GPC**      | 2                         | (1, 4)             |
+|**Other**    | 1                         | (0, 1)             |
+
+![alt text](https://github.com/sjwild/Canandian_Election_2021/raw/main/can_seat_count_on_election_date.png "Projected seat count of Canadian parties on September 20, 2021.")
 
 You can find all of the code for these models [here](https://github.com/sjwild/Canandian_Election_2021/raw/main/can_vote_intention_on_election_date.png). The projections on this page come from a model written in Julia and Turing. You can find the script for the model [here](https://github.com/sjwild/Canandian_Election_2021/blob/main/Election%202021%20Turing.jl). 
 
-Nothing in these models is original, and I owe a debt to others who have done this before me. You can find selected references at the above link.
+Nothing in these models is original, and I owe a debt to others who have done this before me. In particular, the following models were helpful:
+
+Bailey, J. (2021). britpol v0.1.0: User Guide and Data Codebook. Retrieved from https://doi.org/10.17605/OSF.IO/2M9GB.  
+
+Economist (2020.) Forecasting the US elections. Retrieved from https://projects.economist.com/us-2020-forecast/president. 
+
+Ellis, P. (2019). ozfedelect R package. Retrieved from https://github.com/ellisp/ozfedelect.   
+
+Savage, J.(2016). Trump for President? Aggregating National Polling Data. Retrieved from https://khakieconomics.github.io/2016/09/06/aggregating-polls-with-gaussian-Processes.html.  
+
+INWT Statistics GmbH (2021). Election forecast. Retrieved from https://github.com/INWTlab/lsTerm-election-forecast.  
