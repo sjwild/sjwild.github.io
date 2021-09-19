@@ -87,15 +87,15 @@ We can see that the data here doesn't look great. It's very jagged, which partly
 ```julia
 
 # calculate the 7-day rolling average, then divide by province population
-cases_7day = Matrix{Float64}(undef, (length(provinces), length(names_dates) - 7))
+cases_7day = Matrix{Float64}(undef, (length(provinces), length(names_dates) - 8))
 for i in 1:length(provinces)
     for j in 8:size(cases, 2)
-        cases_7day[i, j-6] = sum(cases[i, (j-6):j]) / 7
-        cases_7day[i, j-6] = cases_7day[i, j-6] / population[i] * 100_000
+        cases_7day[i, j-7] = sum(cases[i, (j-7):j]) / 7
+        cases_7day[i, j-7] = cases_7day[i, j-7] / population[i] * 100_000
     end
 end
 
-dates_7day = names_dates[8:end]
+dates_7day = names_dates[9:end]
 
 
 # Plot showing 7 day rolling average
@@ -103,10 +103,10 @@ p_7day = plot(size = (1200, 800),
               ylabel = "Cases per 100,000", left_margin = 10mm, bottom_margin = 22mm,
               xrotation = 45, tickfontsize = 12, guidefontsize = 14, legend = :topleft,
               titlefontsize = 18)
-title!(p_7day, "Covid cases by province: Rolling 7-day average", titlelocation = :left)
 for i in 1:length(provinces)
     p_7day = plot!(p_7day, dates_7day, Vector(cases_7day[i, 1:end]), label = provinces[i], lw = 4)
 end	
+title!(p_7day, "Covid cases by province: Rolling 7-day average", titlelocation = :left)
 annotate!(p_7day, dates_7day[end], -19, 
           StatsPlots.text("Source: JHU CSSE COVID-19 Data. Analysis by sjwild.github.io\nSeptember 19, 2021", :lower, :right, 8, :grey))
 
