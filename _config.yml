@@ -24,8 +24,8 @@ description: >-
   Stephen Wild's personal blog about statistics, data science, and the like.
 baseurl: ""
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-#twitter_username: 
-github_username:  sjwild
+twitter_username: stephenjwild
+github_username: sjwild
 
 # Build settings
 theme: minima
