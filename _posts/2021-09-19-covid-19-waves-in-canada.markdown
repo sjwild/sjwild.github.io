@@ -74,7 +74,7 @@ for i in 1:length(provinces)
 end	
 title!(p, "Covid cases by province: Rolling 7-day average", titlelocation = :left)
 annotate!(p, names_dates[end], -1600, 
-          StatsPlots.text("Source: JHU CSSE COVID-19 Data. Analysis by sjwild.github.io\nSeptember 17, 2021", :lower, :right, 8, :grey))
+          StatsPlots.text("Source: JHU CSSE COVID-19 Data. Analysis by sjwild.github.io\nSeptember 19, 2021", :lower, :right, 8, :grey))
 
 png(p, "static_cases_by_province")
 
@@ -108,13 +108,13 @@ for i in 1:length(provinces)
     p_7day = plot!(p_7day, dates_7day, Vector(cases_7day[i, 1:end]), label = provinces[i], lw = 4)
 end	
 annotate!(p_7day, dates_7day[end], -19, 
-          StatsPlots.text("Source: JHU CSSE COVID-19 Data. Analysis by sjwild.github.io\nSeptember 17, 2021", :lower, :right, 8, :grey))
+          StatsPlots.text("Source: JHU CSSE COVID-19 Data. Analysis by sjwild.github.io\nSeptember 19, 2021", :lower, :right, 8, :grey))
 
 png(p_7day, "seven_day_rolling_average_by_province")
 
 ```
 
-![alt text](https://github.com/sjwild/sjwild.github.io/raw/main/assets/2021-09-19-covid-19-waves-in-canada/seven_day_rolling_average.png "Plot for each province showing rolling 7-day average of cases per 100,000. It is much smoother than the first plot, and we can now compare cases by province.")
+![alt text](https://raw.githubusercontent.com/sjwild/sjwild.github.io/main/assets/2021-09-19-covid-19-waves-in-canada/seven_day_rolling_average_by_province.png "Plot for each province showing rolling 7-day average of cases per 100,000. It is much smoother than the first plot, and we can now compare cases by province.")
 
 Finally, we can create a gif that shows the waves over time. We can watch as the case rates change by day.
 
@@ -135,7 +135,7 @@ anim = @animate for t in 1:T
         p_anim = plot!(p_anim, dates_7day[1:t], Vector(cases_7day[i, 1:t]), label = provinces[i], lw = 4)
     end	
     annotate!(p_anim, dates_7day[end], -17, 
-              StatsPlots.text("Source: JHU CSSE COVID-19 Data. Analysis by sjwild.github.io\nSeptember 17, 2021", :lower, :right, 8, :grey))
+              StatsPlots.text("Source: JHU CSSE COVID-19 Data. Analysis by sjwild.github.io\nSeptember 19, 2021", :lower, :right, 8, :grey))
 
 end
 
@@ -143,7 +143,7 @@ gif(anim, "time_lapse.gif", fps = 20)
 
 ```
 
-![alt text](https://github.com/sjwild/sjwild.github.io/raw/main/assets/2021-09-19-covid-19-waves-in-canada/time_lapse.gif. "a gif showing the evolution of cases per 100,000 per day.")
+![alt text](https://github.com/sjwild/sjwild.github.io/raw/main/assets/2021-09-19-covid-19-waves-in-canada/time_lapse.gif "a gif showing the evolution of cases per 100,000 per day.")
 
 ## Data source
 The following the the citation for the data used in this post:

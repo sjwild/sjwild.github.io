@@ -50,7 +50,7 @@ for i in 1:length(provinces)
 end	
 title!(p, "Covid cases by province: Rolling 7-day average", titlelocation = :left)
 annotate!(p, names_dates[end], -1600, 
-          StatsPlots.text("Source: JHU CSSE COVID-19 Data. Analysis by sjwild.github.io\nSeptember 17, 2021", :lower, :right, 8, :grey))
+          StatsPlots.text("Source: JHU CSSE COVID-19 Data. Analysis by sjwild.github.io\nSeptember 19, 2021", :lower, :right, 8, :grey))
 
 png(p, "static_cases_by_province")
 
@@ -77,7 +77,7 @@ for i in 1:length(provinces)
     p_7day = plot!(p_7day, dates_7day, Vector(cases_7day[i, 1:end]), label = provinces[i], lw = 4)
 end	
 annotate!(p_7day, dates_7day[end], -19, 
-          StatsPlots.text("Source: JHU CSSE COVID-19 Data. Analysis by sjwild.github.io\nSeptember 17, 2021", :lower, :right, 8, :grey))
+          StatsPlots.text("Source: JHU CSSE COVID-19 Data. Analysis by sjwild.github.io\nSeptember 19, 2021", :lower, :right, 8, :grey))
 
 png(p_7day, "seven_day_rolling_average_by_province")
 
@@ -98,7 +98,7 @@ anim = @animate for t in 1:T
         p_anim = plot!(p_anim, dates_7day[1:t], Vector(cases_7day[i, 1:t]), label = provinces[i], lw = 4)
     end	
     annotate!(p_anim, dates_7day[end], -17, 
-              StatsPlots.text("Source: JHU CSSE COVID-19 Data. Analysis by sjwild.github.io\nSeptember 17, 2021", :lower, :right, 8, :grey))
+              StatsPlots.text("Source: JHU CSSE COVID-19 Data. Analysis by sjwild.github.io\nSeptember 19, 2021", :lower, :right, 8, :grey))
 
 end
 
