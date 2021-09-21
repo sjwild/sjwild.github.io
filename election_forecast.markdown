@@ -38,8 +38,6 @@ While I have projected an CPC victory, it is close. Based on 10,000 simulations,
 |**GPC**      | 2                         | (1, 4)             |
 |**Other**    | 1                         | (0, 1)             |
 
-![alt text](https://github.com/sjwild/Canandian_Election_2021/raw/main/can_seat_count_on_election_date.png "Projected seat count of Canadian parties on September 20, 2021.")
-
 You can find all of the code for these models [here](https://github.com/sjwild/Canandian_Election_2021/raw/main/can_vote_intention_on_election_date.png). The projections on this page come from a model written in Julia and Turing. You can find the script for the model [here](https://github.com/sjwild/Canandian_Election_2021/blob/main/Election%202021%20Turing.jl). 
 
 Nothing in these models is original, and I owe a debt to others who have done this before me. In particular, the following models were helpful:
