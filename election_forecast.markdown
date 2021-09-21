@@ -4,20 +4,20 @@ title: 2021 election forecast
 permalink: /election-forecast/
 ---
 
-Last updated: __September 15, 2021__
+Last updated: __September 20, 2021__
 
 This is my forecast for the Canadian 2021 federal election on Sepetember 20, 2021. I use polls listed on [Wikipedia](https://en.wikipedia.org/wiki/Opinion_polling_for_the_2021_Canadian_federal_election) to try estimate underlying vote intention for each party. The predictions for voting intention and seat count (that is, for the period after 2019-10-21, the date of 2019 Canadian election) assume that the polling errors are the same both pre- and post- 2019 election. That may or may not be true, but I suspect that polling errors are correlated between these periods.
 
-Using polls up to and including September 13, 2021, the CPC and LPC are virtually tied. Estimated vote intention for September 20th was:
+Using polls up to and including September 17, 2021, the CPC and LPC are virtually tied. Estimated vote intention for September 20th was:
 
 |**Party**    | **Vote share**  | **95% bounds**     |
 |-------------|:---------------:|:------------------:|
-|**LPC**      | 33.1%           | (30.6%, 35.4%)     |
-|**CPC**      | 33.4%           | (31.4%, 35.6%)     |
-|**NDP**      | 17.7%           | (15.8%, 19.5%)     |
-|**BQ**       | 7.0%            | (6.2%, 7.7%)       |
-|**GPC**      | 2.4%            | (1.3%, 3.5%)       |
-|**Other**    | 6.7%            | (5.8%, 7.7%)       |
+|**LPC**      | 32.5%           | (30.6%, 34.3%)     |
+|**CPC**      | 33.4%           | (31.7%, 35.0%)     |
+|**NDP**      | 18.2%           | (16.7%, 19.7%)     |
+|**BQ**       | 7.1%            | (6.4, 7.7%)       |
+|**GPC**      | 2.1%            | (1.2%, 2.9%)       |
+|**Other**    | 7.2%            | (6.3%, 8.0%)       |
 
 ![alt text](https://github.com/sjwild/Canandian_Election_2021/raw/main/can_vote_intention_on_election_date.png "Density plot of estimated vote share per party.")
 
