@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Using Julia as a GIS to see who lives around you"
-date:   2021-11-10 21:00:00 -0400
+date:   2021-11-11 21:00:00 -0400
 categories: blog
 ---
 
