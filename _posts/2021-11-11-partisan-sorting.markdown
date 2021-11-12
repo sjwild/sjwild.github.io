@@ -5,13 +5,12 @@ date:   2021-11-11 21:00:00 -0400
 categories: blog
 ---
 
-# Partisan sorting
+## Partisan sorting
 About a month and a half ago, we had an election in Canada (you can see my election forecast [here](https://sjwild.github.io/election-forecast/)). After some time went by, I tried to see if I could find the official results by polling division. I couldn't. But I did find the 2019 election results. As we're in November, which is apparently 30 days of maps, I thought I would make a map.
 
 The inspiration for this post is [a paper](https://www.nature.com/articles/s41562-021-01066-z) by Brown and Enos (2021), in which they look at the partisan sorting of 180 million US voters. Canada doesn't have quite the same level of granularity. To my knowledge, Canada doesn't have public voter files with your party registration (assuming you registered). But we do have electoral results by polling division, which gets us pretty close. 
 
 There are roughly 70,000 polling divisions representing about 18 million voters, or less than 300 voters per district. Using this data, we can get an idea of the partisan sorting in Canadian cities.
-
 
 ## Creating the dataset
 To plot partisan sorting, we're going to start by downloading the data, loading it, and renaming the variables we need. We'll need to download several zipfiles. While we could create a function to do this, I always forget how to do it in Julia, so I am going to write it out each time as a way of trying to cement it in my brain
@@ -123,7 +122,6 @@ size(df)
 
 We are now down to 75 thousand rows. Whew!
 
-
 ## Working with shapefiles
 Next, We are going to have to work with several shapefiles. This will let us map the vote percent per division.
 
@@ -179,7 +177,7 @@ close(pczip)
 popcentres = GD.read("shapefiles/lpc_000b16a_e.shp")
 ```
 
-Before doing the next step, I took a few minutes to review the documentation on the shapefiles. Thankfully, all three shapefiles we will use feature the same projection, so we don't need to convert them. In Julia I haven't found an easy way to see the projection yet. In R, one could use `st_crs(shpfl)$proj4string)` or something similar if load the shapefile as an `sf` object.
+Before doing the next step, I took a few minutes to review the documentation on the shapefiles. Thankfully, all three shapefiles we will use feature the same projection, so we don't need to convert them. In Julia I haven't found an easy way to see the projection yet. In R, one could use `st_crs(shpfl)$proj4string)` or something similar if you loaded the shapefile as an `sf` object.
 
 Because the shapefiles both use the same projection, we can use the `GeoDataFrames`'s `within` function to see if the centroids of a given polling division fall within a municpal boundary. In this case, I chose to use the centroids because it sped up the computations. To be more complete, we could use the full boundary and `GeoDataFrames.overlaps` as well. But it's a blog post, so simple we shall go. 
 
@@ -203,7 +201,7 @@ end
 pds = leftjoin(pds, popcentres[:, [:PCPUID, :PCNAME, :PRNAME]], on = :PCPUID)
 ```
 
-The next step is to assign a province name for those polling division that exist outside a population centre. Then I will combine all three of the datasets--the poll results, the polling division boundaries, and the names of cities and provinces for each polling division--and convert the province names into the 2-digit province code. 
+The next step is to assign a province name for those polling division that exist outside a population centre. Then we will combine all three of the datasets--the poll results, the polling division boundaries, and the names of cities and provinces for each polling division--and convert the province names into the 2-digit province code. 
 
 ```Julia
 # Download provinces shapefile and open
@@ -271,7 +269,7 @@ df.Party[df.TotalVotes .== 0] .= "NA"
 ```
 
 ## Plotting partisan sorting
-Now that we have my dataset, we can plot images showing partisan sorting by city or province. Because we will make several plots, we should create a function. In this case, the function below is probably too large and should be broken down into a bunch of smaller functions. But for now, it works.
+Now that we have our dataset, we can plot images showing partisan sorting by city or province. Because we will make several plots, we should create a function. In this case, the function below is probably too large and should be broken down into a bunch of smaller functions. But for now, it works.
 
 This function will take the dataframe we have produced, along with a city name or province code (either of which must be exact here), along with the location of the legend and an indicator for whether we are making a city or provincial map. In turn, it will subset the data and produce the map. It will loop through the number of parties that won in at least one polling division, and colour-code the division by party and vote percent. Darker colours mean a higher vote percentage.
 
