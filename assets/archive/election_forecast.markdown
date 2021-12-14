@@ -1,8 +1,8 @@
----
-layout: page
-title: 2021 election forecast
-permalink: /election-forecast/
----
+#---
+#layout: page
+#title: 2021 election forecast
+#permalink: /archive/election-forecast/
+#---
 
 Last updated: __September 20, 2021__
 
