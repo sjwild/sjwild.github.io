@@ -3,6 +3,7 @@ layout: post
 title:  "Always center your variables in multilevel models"
 date:   2021-09-02 21:00:00 -0400
 categories: blog
+usemathjax: true
 ---
 
 This is a post about why you should always center your variables in multilevel models. Always. And by always, I mean it depends. But I think as a default, you should center your variables in a multilevel model unless there is a strong reason to do otherwise.
