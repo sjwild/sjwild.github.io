@@ -1,9 +1,8 @@
 ---
 layout: post
 title:  "How correlated predictors inflate your standard errors"
-date:   2022-01-26 21:00:00 -0400
+date:   2022-01-28 08:00:00 -0400
 categories: blog
-usemathjax: true
 ---
 
 On Twitter, Nicolai Birk [asks a very good question](https://twitter.com/nicolaiberk/status/1483498750375079936?s=20): Why are standard errors infalted when predictors are correlated?
