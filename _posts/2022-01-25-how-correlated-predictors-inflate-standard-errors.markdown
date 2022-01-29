@@ -5,7 +5,7 @@ date:   2022-01-28 08:00:00 -0400
 categories: blog
 ---
 
-On Twitter, Nicolai Birk [asks a very good question](https://twitter.com/nicolaiberk/status/1483498750375079936?s=20): Why are standard errors infalted when predictors are correlated?
+On Twitter, Nicolai Birk [asks a very good question](https://twitter.com/nicolaiberk/status/1483498750375079936?s=20): Why are standard errors inflated when predictors are correlated?
 
 The answer requires us to look at linear regression using linear algebra. 
 
@@ -230,7 +230,7 @@ X4 -2.279369e-07 -1.123742e-06 1.166853e-06  9.845711e-05
 
 ```
 
-Intuitively, we find the inverse of a matrix by finding the row operations that "undo" the row operations necessary to transform the identiy matrix into XtX. The identiy matrix, recall, is ones on the diagonal and zeros everywhere else.
+Intuitively, we find the inverse of a matrix by finding the row operations that "undo" the row operations necessary to transform the identity matrix into XtX. The identity matrix, recall, is ones on the diagonal and zeros everywhere else.
 
 ```R
 > diag(4)
