@@ -4,16 +4,27 @@ title: Canadian vote intention
 permalink: /canadian-vote-intention/
 ---
 
-Last updated: __December 12, 2021__
+Last updated: __January 27, 2022__
 
 This is my estimate of Canadian vote intention based on polls listed on [Wikipedia](https://en.wikipedia.org/wiki/Opinion_polling_for_the_45th_Canadian_federal_election). The predictions for voting intention assume that the polling errors are the same both pre- and post- 2021 election. That may or may not be true, but I suspect that polling errors are correlated between these periods.
 
-Using polls up to and including December 12, 2021, the LPC maintains a slight lead. Estimated vote intention for December 12th was:
+Using polls up to and including January 27, 2022, the LPC and CPC are tied. Estimated vote intention for January 27th was:
+
+|**Party**    | **Vote share**  | **95% bounds**     |
+|-------------|:---------------:|:------------------:|
+|**LPC**      | 32.2%           | (30.0%, 34.3%)     |
+|**CPC**      | 32.1%           | (29.6%, 34.5%)     |
+|**NDP**      | 17.4%           | (15.9%, 18.8%)     |
+|**BQ**       | 7.3%            | (6.4%, 8.1%)       |
+|**GPC**      | 3.1%            | (2.3%, 4.0%)       |
+|**PPC**      | 5.9%            | (4.6%, 7.3%)       |
+|**Other**    | 1.6%            | (1.1%, 2.1%)       |
+
 
 ![alt text](https://github.com/sjwild/Canandian_Election_2021/raw/main/can_vote_intention_post_2021.png "Density plot of estimated vote share per party.")
 
 
-![alt text](https://github.com/sjwild/Canandian_Election_2021/raw/main/can_vote_intention_2019_post_2021.png "Vote share of Canadian parties from 2019 to 2021.")
+![alt text](https://github.com/sjwild/Canandian_Election_2021/raw/main/can_vote_intention_2019_post_2021.png "Vote share of Canadian parties from 2019 to 2022.")
 
 Here are the estimated house effects: 
 
