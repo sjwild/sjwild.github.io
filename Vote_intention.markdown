@@ -12,23 +12,23 @@ Using polls up to and including February 12, 2022, the LPC and CPC are tied. Est
 
 |**Party**    | **Vote share**  | **95% bounds**     |
 |-------------|:---------------:|:------------------:|
-|**LPC**      | 32.2%           | (30.0%, 34.3%)     |
-|**CPC**      | 32.1%           | (29.6%, 34.5%)     |
-|**NDP**      | 17.4%           | (15.9%, 18.8%)     |
-|**BQ**       | 7.3%            | (6.4%, 8.1%)       |
-|**GPC**      | 3.1%            | (2.3%, 4.0%)       |
-|**PPC**      | 5.9%            | (4.6%, 7.3%)       |
-|**Other**    | 1.6%            | (1.1%, 2.1%)       |
+|**LPC**      | 33.2%           | (30.1%, 35.5%)     |
+|**CPC**      | 32.0%           | (29.5%, 34.7%)     |
+|**NDP**      | 17.4%           | (15.8%, 19.0%)     |
+|**BQ**       | 7.6%            | (6.7%, 8.6%)       |
+|**GPC**      | 3.1%            | (2.2%, 4.1%)       |
+|**PPC**      | 5.0%            | (3.5%, 6.5%)       |
+|**Other**    | 1.4%            | (0.9%, 1.9%)       |
 
 
-![alt text](https://github.com/sjwild/Canandian_Election_2021/raw/main/Images/can_vote_intention_post_2021.png "Density plot of estimated vote share per party.")
+![alt text](https://github.com/sjwild/Canadian_Election_2021/raw/main/Images/can_vote_intention_post_2021.png "Density plot of estimated vote share per party.")
 
 
-![alt text](https://github.com/sjwild/Canandian_Election_2021/raw/main/Images/can_vote_intention_2019_post_2021.png "Vote share of Canadian parties from 2019 to 2022.")
+![alt text](https://github.com/sjwild/Canadian_Election_2021/raw/main/Images/can_vote_intention_2019_post_2021.png "Vote share of Canadian parties from 2019 to 2022.")
 
 Here are the estimated house effects: 
 
-![alt text](https://github.com/sjwild/Canandian_Election_2021/raw/main/Images/house_effects_pollsters_2019_2021.png "House effects of Canadian polling firms.")
+![alt text](https://github.com/sjwild/Canadian_Election_2021/raw/main/Images/house_effects_pollsters_2019_2021.png "House effects of Canadian polling firms.")
 
 
 ## Credit where credit is due
