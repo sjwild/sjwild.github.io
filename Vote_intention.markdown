@@ -4,11 +4,11 @@ title: Canadian vote intention
 permalink: /canadian-vote-intention/
 ---
 
-Last updated: __January 27, 2022__
+Last updated: __February 12, 2022__
 
 This is my estimate of Canadian vote intention based on polls listed on [Wikipedia](https://en.wikipedia.org/wiki/Opinion_polling_for_the_45th_Canadian_federal_election). The predictions for voting intention assume that the polling errors are the same both pre- and post- 2021 election. That may or may not be true, but I suspect that polling errors are correlated between these periods.
 
-Using polls up to and including January 27, 2022, the LPC and CPC are tied. Estimated vote intention for January 27th was:
+Using polls up to and including February 12, 2022, the LPC and CPC are tied. Estimated vote intention for February 12th was:
 
 |**Party**    | **Vote share**  | **95% bounds**     |
 |-------------|:---------------:|:------------------:|
@@ -21,14 +21,14 @@ Using polls up to and including January 27, 2022, the LPC and CPC are tied. Esti
 |**Other**    | 1.6%            | (1.1%, 2.1%)       |
 
 
-![alt text](https://github.com/sjwild/Canandian_Election_2021/raw/main/can_vote_intention_post_2021.png "Density plot of estimated vote share per party.")
+![alt text](https://github.com/sjwild/Canandian_Election_2021/raw/main/Images/can_vote_intention_post_2021.png "Density plot of estimated vote share per party.")
 
 
-![alt text](https://github.com/sjwild/Canandian_Election_2021/raw/main/can_vote_intention_2019_post_2021.png "Vote share of Canadian parties from 2019 to 2022.")
+![alt text](https://github.com/sjwild/Canandian_Election_2021/raw/main/Images/can_vote_intention_2019_post_2021.png "Vote share of Canadian parties from 2019 to 2022.")
 
 Here are the estimated house effects: 
 
-![alt text](https://github.com/sjwild/Canandian_Election_2021/raw/main/house_effects_pollsters_2019_2021.png "House effects of Canadian polling firms.")
+![alt text](https://github.com/sjwild/Canandian_Election_2021/raw/main/Images/house_effects_pollsters_2019_2021.png "House effects of Canadian polling firms.")
 
 
 ## Credit where credit is due
