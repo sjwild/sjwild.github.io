@@ -47,7 +47,7 @@ Sometime in the next few months, Ontario should be heading towards a provincial 
 |**Green**    | 3.5%            | (1.5%, 5.4%)       |
 |**Other**    | 5.4%            | (2.5%, 8.5%)       |
 
-![alt text](https://github.com/sjwild/Canadian_Election_2021/raw/main/Images/Ontario/ON_vote_intention_2014_2022.png "Density plot of estimated vote share per party in Ontario, 2022.")
+![alt text](https://github.com/sjwild/Canadian_Election_2021/raw/main/Images/Ontario/ON_vote_intention_2022.png "Density plot of estimated vote share per party in Ontario, 2022.")
 
 
 ![alt text](https://github.com/sjwild/Canadian_Election_2021/raw/main/Images/Ontario/ON_vote_intention_2014_2022.png "Vote share of Ontario parties from 2014 to 2022.")
