@@ -30,7 +30,7 @@ Using polls up to and including March 14, 2022, the LPC and CPC are roughly tied
 
 # Estimated house effects: 
 
-![alt text](https://github.com/sjwild/Canadian_Election_2021/raw/main/Images/Federal/house_effects_pollsters_2019_2021.png "House effects of Canadian polling firms.")
+![alt text](https://github.com/sjwild/Canadian_Election_2021/blob/main/Images/Federal/can_house_effects_pollsters_2019_2022.png "House effects of Canadian polling firms.")
 
 
 ## Ontario vote intention
