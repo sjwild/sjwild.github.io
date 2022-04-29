@@ -28,7 +28,7 @@ Using polls up to and including April 29, 2022, the CPC is ahead. Estimated vote
 
 ![alt text](https://github.com/sjwild/Canadian_Election_2021/raw/main/Images/Federal/can_vote_intention_2019_post_2021.png "Vote share of Canadian parties from 2019 to 2022.")
 
-# Estimated house effects: 
+### Estimated house effects: 
 
 ![alt text](https://github.com/sjwild/Canadian_Election_2021/blob/main/Images/Federal/can_house_effects_pollsters_2019_2022.png "House effects of Canadian polling firms from 2019 to 2022.")
 
@@ -39,11 +39,6 @@ Last updated: __April 29, 2022__
 
 Sometime in the next few months, Ontario should be heading towards a provincial election. This is my estimate of Ontario vote intention based on polls listed on [Wikipedia](https://en.wikipedia.org/wiki/2022_Ontario_general_election#Opinion_polls). Because there are fewer polls here than at the federal level, the underlying vote intentional is much more impercise. nonetheless, we can see the PCs are well in the lead at this point. Interestingly, the NDP has lost support and the Liberals have gained enough that they are now in second place.
 
-PC: [0.3772067257499999, 0.343637575, 0.409886975]
-NDP: [0.2388572005, 0.200211725, 0.27596980000000004]
-Liberal: [0.3076644415, 0.265407925, 0.35133925]
-Green: [0.03724445502000001, 0.0230209025, 0.052053245]
-Other: [0.05281223750000001, 0.0370631375, 0.0677198225]
 |**Party**    | **Vote share**  | **95% bounds**     |
 |-------------|:---------------:|:------------------:|
 |**CPC**      | 37.7%           | (34.4%, 41.0%)     |
@@ -58,7 +53,7 @@ Other: [0.05281223750000001, 0.0370631375, 0.0677198225]
 ![alt text](https://github.com/sjwild/Canadian_Election_2021/raw/main/Images/Ontario/ON_vote_intention_2014_2022.png "Vote share of Ontario parties from 2014 to 2022.")
 
 
-# Estimated Ontario house effects
+### Estimated Ontario house effects
 
 ![alt text](https://github.com/sjwild/Canadian_Election_2021/raw/main/Images/Ontario/ON_house_effects_pollsters_2014_2022.png "House effects of polling firms surveying residents of Ontario, 2014 to 2022.")
 
