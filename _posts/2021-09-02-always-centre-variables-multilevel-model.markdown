@@ -45,9 +45,9 @@ But we can help it by breaking the variable in two.
 
 The most common way to make the adjustment is to center the predictors in the model. Three methods are common: group-mean centering, grand-mean centering, and baseline centering. 
 
-With group-mean centering--also called adaptive centering, person-mean centering, or centering within context--for each observation in a group, we subtract out the mean for that group. So for a given predictor what we have is $x_{ij} - \bar{x_{j}}$. Using this method, we can decompose our effect into within groups and between groups. Why? Because we took out the group differences. This type of centering is common in cross-sectional multilevel models.
+With group-mean centering--also called adaptive centering, person-mean centering, or centering within context--for each observation in a group, we subtract out the mean for that group. So for a given predictor what we have is $$x_{ij} - \bar{x_{j}}$$. Using this method, we can decompose our effect into within groups and between groups. Why? Because we took out the group differences. This type of centering is common in cross-sectional multilevel models.
 
-With grand-mean centering, we take out the grand mean or any other meaningful constant. We then have $x_{i} - \bar{x}$. We often see this in bayesian modelling, where we center our predictors and then divide by the standard deviation (this helps the samplers run faster).
+With grand-mean centering, we take out the grand mean or any other meaningful constant. We then have $$x_{i} - \bar{x}$$. We often see this in bayesian modelling, where we center our predictors and then divide by the standard deviation (this helps the samplers run faster).
 
 The third option is baseline centering. Baseline centering is similar to grand-mean centering. But instead of the grand-mean, we subtract out the value at a baseline--say, the value at time 0. This method is common for longitudinal data.
 
