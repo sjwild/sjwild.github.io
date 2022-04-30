@@ -19,14 +19,23 @@
 # in the templates via {{ site.myvariable }}.
 
 title: Stephen Wild's site
-email: stephen.james.wild@gmail.com
+author:
+  email: stephen.james.wild@gmail.com
+  #name: Stephen Wild
+
 description: >-
   Stephen Wild's personal blog about statistics, data science, and the like.
 baseurl: ""
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: stephenjwild
-github_username: sjwild
+#twitter_username: stephenjwild
+#github_username: sjwild
 #markdown: kramdown
+
+minima:
+  date_format: "%b %-d, %Y"
+  social_links:
+    twitter: stephenjwild
+    github:  sjwild
 
 # Build settings
 theme: minima
