@@ -6,7 +6,7 @@ permalink: /canadian-vote-intention/
 
 
 ## Federal 
-Last updated: __April 29, 2022__
+Last updated: __May 09, 2022__
 
 This is my estimate of Canadian vote intention based on polls listed on [Wikipedia](https://en.wikipedia.org/wiki/Opinion_polling_for_the_45th_Canadian_federal_election). The predictions for voting intention assume that the polling errors are the same both pre- and post- 2021 election. That may or may not be true, but I suspect that polling errors are correlated between these periods.
 
@@ -14,12 +14,12 @@ Using polls up to and including April 29, 2022, the CPC is ahead. Estimated vote
 
 |**Party**    | **Vote share**  | **95% bounds**     |
 |-------------|:---------------:|:------------------:|
-|**LPC**      | 31.2%           | (28.5%, 33.9%)     |
-|**CPC**      | 36.9%           | (33.8%, 40.0%)     |
-|**NDP**      | 17.1%           | (15.2%, 19.0%)     |
-|**BQ**       | 7.2%            | (6.1%, 8.2%)       |
-|**GPC**      | 3.5%            | (2.2%, 4.8%)       |
-|**PPC**      | 3.0%            | (1.5%, 4.3%)       |
+|**LPC**      | 31.2%           | (27.7%, 34.7%)     |
+|**CPC**      | 36.9%           | (32.9%, 41.2%)     |
+|**NDP**      | 17.1%           | (14.7%, 19.6%)     |
+|**BQ**       | 7.2%            | (5.8%, 8.4%)       |
+|**GPC**      | 3.5%            | (1.9%, 5.0%)       |
+|**PPC**      | 3.0%            | (1.0%, 4.7%)       |
 |**Other**    | 1.1%            | (0.1%, 1.7%)       |
 
 
@@ -36,17 +36,17 @@ Using polls up to and including April 29, 2022, the CPC is ahead. Estimated vote
 
 ## Ontario vote intention
 
-Last updated: __April 29, 2022__
+Last updated: __May 09, 2022__
 
 Sometime in the next few months, Ontario should be heading towards a provincial election. This is my estimate of Ontario vote intention based on polls listed on [Wikipedia](https://en.wikipedia.org/wiki/2022_Ontario_general_election#Opinion_polls). Because there are fewer polls here than at the federal level, the underlying vote intentional is much more impercise. nonetheless, we can see the PCs are well in the lead at this point. Interestingly, the NDP has lost support and the Liberals have gained enough that they are now in second place.
 
 |**Party**    | **Vote share**  | **95% bounds**     |
 |-------------|:---------------:|:------------------:|
-|**CPC**      | 37.7%           | (34.4%, 41.0%)     |
-|**NDP**      | 23.8%           | (20.0%, 27.6%)     |
-|**Liberal**  | 30.8%           | (26.5%, 35.1%)     |
-|**Green**    | 3.7%            | (2.3%, 5.2%)       |
-|**Other**    | 5.2%            | (3.7%, 6.8%)       |
+|**CPC**      | 37.0%           | (34.5%, 41.0%)     |
+|**NDP**      | 26.7%           | (23.7%, 29.5%)     |
+|**Liberal**  | 30.2%           | (27.0%, 33.4%)     |
+|**Green**    | 3.7%            | (2.5%, 4.9%)       |
+|**Other**    | 3.6%            | (2.8%, 4.4%)       |
 
 ![alt text](https://raw.githubusercontent.com/sjwild/Canadian_Election_2021/main/Images/Ontario/ON_vote_intention_2022.png "Density plot of estimated vote share per party in Ontario, 2022.")
 

@@ -25,14 +25,14 @@ In short, I am going to assume that everything was done correctly except for the
 
 You can find the code I used for my models [here](https://github.com/sjwild/sjwild.github.io/raw/main/assets/2021-09-02-always_centre-variables-multilevel-model/Load_and_Prep_PISA_data.R). If I am wrong, please tell me so I can correct it.
 
-# _Twenge et al._'s results
+## _Twenge et al._'s results
 In their final two models, Twenge et al. run a comprehensive model using smartphone access and internet usage as their treatment variables--that is, as their main variables of interest. Here is a copy of their results.
 
 ![alt text](https://github.com/sjwild/sjwild.github.io/raw/main/assets/2021-09-02-always-centre-variables-multilevel-model/Table_4_Twenge_et_al.png "Image of Table 4 from Twenge et al..")
 
 In both their models, smartphone access and internet usage are statistically significant. Unfortunately, Twenge et al.'s model is misspecified, and their results showing smartphone access and internet usage are not significant once we make the requisite adjustments.
 
-# How is the model misspecified?
+## How is the model misspecified?
 Multilevel models are loved in some fields (looking at you, education and psychology) and reviled in others (looking at you, economics). The issue is the use of random effects. Random effects are awesome, but they lead to biased esimates when the fixed effects are correlated with the random effects.
 
 To see what I mean, take a look at the image below. In it, I have chosen three illustrative countries and their smartphone access. As you can see, there is a relationship between smartphone access in 2012 and the rate of smartphone access increases over time. Countries with lower rates of smartphone access increase at faster rates. That is, we can say that the intercept (initial smartphone access) is negatively correlated with the slope (change in access over time): in countries with higher initial smartphone access, smartphone access increases more slowly compared to countries with lower initial smartphone access. As a result, smartphone access coverges over time.
@@ -53,12 +53,12 @@ The third option is baseline centering. Baseline centering is similar to grand-m
 
 With all three centering methods, it is common to add the group means as predictors, to help detect any between group differences. This is relevant for the work in Twenge et al., because there might be an effect of smartphone access within a country, but not between countries, or vice versa. Or there might be an effect within and between countries. Or there might not be.
 
-# What happens when we center our variables?
+## What happens when we center our variables?
 As you can see in the image for our illustrative example below, one we remove the means for our baseline year, 2012, the slopes are not longer correlated with the values at year 0. The model can therefore pick up both within and between effects if me include the initial values in the model as well. Mission accomplished.
 
 ![alt text](https://github.com/sjwild/sjwild.github.io/raw/main/assets/2021-09-02-always-centre-variables-multilevel-model/example_smushed_effects_0_intercept.png "Illustrative example showing intercept at zero")
 
-# Modelling PISA data
+## Modelling PISA data
 Moving on to Twenge et al. Let's take a look at their comprehensive model for the effect of smartphone access. I've done some data cleaning to try duplicate their coding, and I think I managed to get reasonably close to their results. 
 
 ```r
@@ -177,7 +177,7 @@ They made an interesting choice here with GDP. I think they took gross GDP and t
 If you look at the correlation of the fixed effects, you can see that they are -0.624 for smartphone access and -0.584 for internet usage. Those are pretty strong, and are good suggestions that our coefficients are biased.
 
 
-## Centering the variables
+### Centering the variables
 Now let's center our variables at their first observed values. For most countries, this is 2012, but for a few it is 2015. We are also going to grand-mean center the baseline means, to help break the correlation between the random effects and the fixed effects.
 
 
@@ -380,7 +380,7 @@ SP.DYN.TFRT.IN_2  0.244  0.453            0.120           -0.488
 
 ```
 
-# But wait, what if we use per capita GDP?
+## But wait, what if we use per capita GDP?
 Now it starts to get more interesting. I mentioned earlier that I think they use gross GDP as one of their predictors. Gross GDP is an odd choice because it does not properly adjust for population size. Using gross GDP, the country with a greater population would have higher GDP even if the countries had an equal GDP per capita. That is not the measure what we want to use.
 
 Think of it this way. Imagine we had two schools where, on average, students had the same scores. But to figure out which school has "smarter" students, we simply added up the scores of the students and used that as our total. Now imagine that the larger school has more students but a lower aerage test score. The greater number of students means that the lower-scoring school can have a higher gross score, even if the average student is less smart than the smaller school.
@@ -536,17 +536,17 @@ Use print(x, correlation=TRUE)  or
 Our model now has nearly as many predictors and random effects as there are observations. But we can see that both smartphone access and internet usage are no longer statistically significant. 
 
 
-# Final thoughts
+## Final thoughts
 Twenge et al.'s mistake is common. The main multilevel modelling textbooks barely cover it (e.g., Snjiders & Bosker, 2011; Raudenbush & Bryk, 2002). They mention it briefly, and then rarely make use of it the rest of the book. 
 
 To be clear, I don't think that Twenge et al.'s model (or mine in this post) is appropriate for what they are trying to measure. There's too few observations, too many preditors, and variables that don't make sense (like gross GDP). By aggregating their data, they have a study that is underpowered and noisy.
 
 
-# References
+## References
 Below are a few references I've found helpful in using mixed effects models to model longitudinal data. In particular, I recommend Lesa Hoffman's _Longitudinal analysis: Modeling within-person fluctuation and change_. To understand group-mean centering, I also recommend the articles by Bell and coauthors. 
 
 
-## Centering
+### Centering
 Bell, A., Fairbrother, M., & Jones, K. (2019). Fixed and random effects models: making an informed choice. _Quality & Quantity_, _53_(2), 1051-1074.
 
 Bell, A., & Jones, K. (2015). Explaining fixed effects: Random effects modeling of time-series cross-sectional and panel data. _Political Science Research and Methods_, _3_(1), 133-153.
@@ -566,5 +566,5 @@ Raudenbush, S. W., & Bryk, A. S. (2002). _Hierarchical linear models: Applicatio
 Snijders, T. A., & Bosker, R. J. (2011). _Multilevel analysis: An introduction to basic and advanced multilevel modeling_. sage.
 
 
-## Twenge et al.
+### Twenge et al.
 Twenge, J. M., Haidt, J., Blake, A. B., McAllister, C., Lemon, H., & Le Roy, A. (2021). Worldwide increases in adolescent loneliness. _Journal of Adolescence_.
