@@ -40,12 +40,6 @@ Last updated: __May 31, 2022__
 
 Sometime in the next few months, Ontario should be heading towards a provincial election. This is my estimate of Ontario vote intention based on polls listed on [Wikipedia](https://en.wikipedia.org/wiki/2022_Ontario_general_election#Opinion_polls). Because there are fewer polls here than at the federal level, the underlying vote intentional is much more impercise. nonetheless, we can see the PCs are well in the lead at this point. 
 
-PC: [0.37286801825000004, 0.34696869999999996, 0.39807657500000004]
-NDP: [0.24869677299999995, 0.2196887, 0.275815875]
-Liberal: [0.276324122, 0.24753350000000002, 0.30585855]
-Green: [0.059164289249999995, 0.04475937, 0.0732684725]
-Other: [0.04810306522499999, 0.039100205, 0.05715383]
-
 |**Party**    | **Vote share**  | **95% bounds**     |
 |-------------|:---------------:|:------------------:|
 |**CPC**      | 37.3%           | (34.7%, 39.8%)     |
