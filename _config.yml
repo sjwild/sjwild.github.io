@@ -36,6 +36,9 @@ minima:
   social_links:
     twitter: stephenjwild
     github:  sjwild
+    mastodon:
+      - username: stephenjwild
+        instance: mastodon.social
 
 # Build settings
 theme: minima
