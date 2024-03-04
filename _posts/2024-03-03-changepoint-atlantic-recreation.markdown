@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Changepoint analysis using Stan"
-date:   2023-03-03 08:00:00 -0400
+date:   2024-03-03 08:00:00 -0400
 categories: blog
 usemathjax: true
 
@@ -9,7 +9,7 @@ usemathjax: true
 
 A chart from _The Atlantic_ has made the rounds, going viral on Twitter.
 
-![alt text](https://github.com/sjwild/sjwild.github.io/raw/main/assets/2023-03-03-changepoint-atlantic-recreation/atlantic_chart_recreation.png  "A chart from _The Atlantic_ showing the percent of grade 12 students who report going out for recreation at least two evenings a week.")
+![alt text](https://github.com/sjwild/sjwild.github.io/raw/main/assets/2024-03-03-changepoint-atlantic-recreation/atlantic_chart_recreation.png  "A chart from _The Atlantic_ showing the percent of grade 12 students who report going out for recreation at least two evenings a week.")
 
 Naturally, everyone has their own interpretation of what it means and what trends the data shows. Here's Derek Thompson:
 
@@ -20,7 +20,7 @@ Rather than eyeball it, I think a more principled approach is to let the data sp
 # Reproducing the chart
 Our first step is to reproduce the chart. The data for the chart comes from __Monitoring the Future__, a well-run survey of American 8th, 10th, and 12th graders. The data is publicly available, so we can download it. It's a bit of pain to download, and I could not find a way in R to do so in a reproducible way. So if you want to run the script below, you'll need to download the relevant years of the survey, unzip it, and save the data from the core module in a folder (I saved them in a folder called "Data"). Assuming you did not change the file names, the script below should open them for you. 
 
-You can find the full script in the folder [here](https://github.com/sjwild/sjwild.github.io/tree/main/assets/2023-03-03-changepoint-atlantic-recreation)
+You can find the full script in the folder [here](https://github.com/sjwild/sjwild.github.io/tree/main/assets/2024-03-03-changepoint-atlantic-recreation)
 
 ```R 
 library(tidyverse)
@@ -136,7 +136,7 @@ ggsave("atlantic_recreation_reproduced.png", width = 2000, height = 1150, units 
 ```
 
 
-![alt text](https://raw.githubusercontent.com/sjwild/sjwild.github.io/main/assets/2023-03-03-changepoint-atlantic-recreation/atlantic_recreation_reproduced.png  "A chart that reproduces the same one from _The Atlantic_ showing the percent of grade 12 students who report going out for recreation at least two evenings a week.")
+![alt text](https://raw.githubusercontent.com/sjwild/sjwild.github.io/main/assets/2024-03-03-changepoint-atlantic-recreation/atlantic_recreation_reproduced.png  "A chart that reproduces the same one from _The Atlantic_ showing the percent of grade 12 students who report going out for recreation at least two evenings a week.")
 
 # A changepoint model
 As you can see from the plot, it looks like the trend starts around 2010. But who knows for sure. This is a yearly survey measuring something that likely changes during the course of the year. But that's the subject for a future post.
@@ -150,7 +150,7 @@ The model in the Stan manual can easily be modified to account for different lik
 
 Here is our modified code. I haven't commented the code as well as I normally would because the Stan manual does a great job of explaining each section.
 
-You can find the Stan code in the folder [here](https://github.com/sjwild/sjwild.github.io/tree/main/assets/2023-03-03-changepoint-atlantic-recreation)
+You can find the Stan code in the folder [here](https://github.com/sjwild/sjwild.github.io/tree/main/assets/2024-03-03-changepoint-atlantic-recreation)
 
 ```Stan
 
@@ -246,7 +246,7 @@ ggplot(data.frame(x = x, y = y)) +
 ggsave("simulated_data_changepoint.png", width = 2000, height = 1150, units = "px")
 ```
 
-![alt text](https://raw.githubusercontent.com/sjwild/sjwild.github.io/main/assets/2023-03-03-changepoint-atlantic-recreation/simulated_data_changepoint.png  "A scatterplot showing an increasing trend from 0-75, then a decreasing trend from 76-100.")
+![alt text](https://raw.githubusercontent.com/sjwild/sjwild.github.io/main/assets/2024-03-03-changepoint-atlantic-recreation/simulated_data_changepoint.png  "A scatterplot showing an increasing trend from 0-75, then a decreasing trend from 76-100.")
 
 ## Fitting the model
 And with our simulated data, let's fit our model. We'll use weakly informative priors. As this is supposed to be a short blog post, we aren't going to worry about prior predictive checks or anything else.
@@ -292,7 +292,7 @@ ggsave("recovered_changepoint_simulated_data.png", width = 2000, height = 1150, 
 
 We get no warnings, so we'll proceed. If this wasn't a blog post, it would be worth doing the posterior predictive checks, testing other models and sensitivity to priors, etc. But this is good enough for us.
 
-![alt text](https://raw.githubusercontent.com/sjwild/sjwild.github.io/main/assets/2023-03-03-changepoint-atlantic-recreation/recovered_changepoint_simulated_data.png  "A histogram showing estimated changepoints. We successfully recovered the changepoint.")
+![alt text](https://raw.githubusercontent.com/sjwild/sjwild.github.io/main/assets/2024-03-03-changepoint-atlantic-recreation/recovered_changepoint_simulated_data.png  "A histogram showing estimated changepoints. We successfully recovered the changepoint.")
 
 ## Fitting it to the Monitoring the Future data
 Now that we know our model works, we'll apply it to the Monitoring the Future. For simplicity, we'll fit it to the global trend, rather than female and male trends.
@@ -338,7 +338,7 @@ s %>%
 ggsave("recovered_changepoint_MTF.png", width = 2000, height = 1150, units = "px")
 ```
 
-![alt text](https://raw.githubusercontent.com/sjwild/sjwild.github.io/main/assets/2023-03-03-changepoint-atlantic-recreation/recovered_changepoint_MTF.png  "A histogram showing estimated changepoints based on the Monitoring the Future data. The mode is 2009, with the bulk of the histogram covering 2009, 2010, and 2011.")
+![alt text](https://raw.githubusercontent.com/sjwild/sjwild.github.io/main/assets/2024-03-03-changepoint-atlantic-recreation/recovered_changepoint_MTF.png  "A histogram showing estimated changepoints based on the Monitoring the Future data. The mode is 2009, with the bulk of the histogram covering 2009, 2010, and 2011.")
 
 We can see that the mode is 2009, but it could easily be 2008 to 2012. But we imposed the assumption that there was only one changepoint. There oculd maybe be 2. If I was industrious, maybe I would fit another model. But that's enough for today.
 
