@@ -9,7 +9,7 @@ usemathjax: true
 
 A chart from _The Atlantic_ has made the rounds, going viral on Twitter.
 
-![alt text]("https://github.com/sjwild/sjwild.github.io/raw/main/assets/2023-03-03-changepoint-atlantic-recreation/atlantic_chart_recreation.png  "A chart from _The Atlantic_ showing the percent of grade 12 students who report going out for recreation at least two evenings a week.")
+![alt text](https://github.com/sjwild/sjwild.github.io/raw/main/assets/2023-03-03-changepoint-atlantic-recreation/atlantic_chart_recreation.png  "A chart from _The Atlantic_ showing the percent of grade 12 students who report going out for recreation at least two evenings a week.")
 
 Naturally, everyone has their own interpretation of what it means and what trends the data shows. Here's Derek Thompson:
 
