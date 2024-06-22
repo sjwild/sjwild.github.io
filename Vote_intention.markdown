@@ -40,11 +40,6 @@ Last updated: __June 22, 2024__
 
 Although no election will be held for a few more years, below is my estimate of Ontario vote intention based on polls listed on [Wikipedia](https://en.wikipedia.org/wiki/2022_Ontario_general_election#Opinion_polls). Because there are fewer polls here than at the federal level, the underlying vote intention is much more impercise. Nonetheless, we can see the PCs are well in the lead. 
 
-PC: [0.4158513345, 0.346577225, 0.4858826]
-NDP: [0.22009655975, 0.1708379, 0.27027982500000003]
-Liberal: [0.23403230314999998, 0.15187200000000003, 0.3121968]
-Green: [0.075574805975, 0.0425950075, 0.107463875]
-Other: [0.056048404375000006, 0.039656032499999994, 0.0734506075]
 |**Party**    | **Vote share**  | **95% bounds**     |
 |-------------|:---------------:|:------------------:|
 |**PC**       | 41.6%           | (34.6%, 48.6%)     |
@@ -69,7 +64,7 @@ Nothing in these models is original, and I owe a debt to others who have done th
 
 Bailey, J. (2021). britpol v0.1.0: User Guide and Data Codebook. Retrieved from [https://doi.org/10.17605/OSF.IO/2M9GB](https://doi.org/10.17605/OSF.IO/2M9GB).  
 
-Economist (2020.) Forecasting the US elections. Retrieved from [https://projects.economist.com/us-2020-forecast/president](https://projects.economist.com/us-2020-forecast/president). 
+Economist (2020). Forecasting the US elections. Retrieved from [https://projects.economist.com/us-2020-forecast/president](https://projects.economist.com/us-2020-forecast/president). 
 
 Ellis, P. (2019). ozfedelect R package. Retrieved from [https://github.com/ellisp/ozfedelect](https://github.com/ellisp/ozfedelect).   
 
