@@ -36,7 +36,7 @@ minima:
   social_links:
     twitter: stephenjwild
     github:  sjwild
-    bluesky: stephenjwild
+    bluesky: stephenjwild.bsky.social
 
 # Build settings
 theme: minima
