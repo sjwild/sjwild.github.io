@@ -8,6 +8,8 @@ usemathjax: true
 * TOC
 {:toc}
 
+_This is part 3 of a ? part series. In my next post I intend to incorporate the time series element. You can find a repo with the Rmd files [here](https://github.com/sjwild/SM-and-MH)_
+
 I spent a while trying to figure out how best to arrange this post. Unlike the last couple posts, this one is going to be a bit more didactic. But I think it's worth it, because it illustrates how hard it is to estimate the direct effect of social media on mental health, **even when you have longitudinal data**.
 
 Part of my inspiration comes from a recent article by [Rudolph and Kim (2024)](https://www.sciencedirect.com/science/article/pii/S235282732400123X), where they use an instrumental variable approach to try identify the effect of smartphone use on mental health. I don't think they have a valid instrument, but I think an instrumental variable approach is probably the only way we'll get reasonable estimates of the direct effect on the mental health of an individual when they reduce their social media use. This post is an attempt to explain why.
