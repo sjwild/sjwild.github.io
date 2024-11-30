@@ -8,7 +8,7 @@ usemathjax: true
 * TOC
 {:toc}
 
-_This is part 3 of a ? part series. In my next post I intend to incorporate the time series element. You can find a repo with the Rmd files [here](https://github.com/sjwild/SM-and-MH)_
+_This is part 3 of a ? part series. No idea what I plan to do for the next post. You can find a repo with the Rmd files [here](https://github.com/sjwild/SM-and-MH)_
 
 I spent a while trying to figure out how best to arrange this post. Unlike the last couple posts, this one is going to be a bit more didactic. But I think it's worth it, because it illustrates how hard it is to estimate the direct effect of social media on mental health, **even when you have longitudinal data**.
 
