@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Things I read in 2024 (and some plans for 2025)"
-date:   2025-01-01 20:00:00 -0500
+date:   2025-01-01 18:00:00 -0500
 categories: blog
 usemathjax: true
 ---
@@ -39,6 +39,8 @@ While this has been another year where I read a bunch of stuff that interests me
   * Argues that social change is hard to engineer. While the focus is on criminology, the critiques probably apply more broadly.
 
 # Video lectures and other stuff
+* Brauer, Jon. _Moderator Madness_. Available in three parts ([part 1](https://reluctantcriminologists.com/blog-posts/%5B6%5D/modmadness-pt1), [part 2](https://reluctantcriminologists.com/blog-posts/%5B7%5D/modmadness-pt2), and [part 3](https://reluctantcriminologists.com/blog-posts/%5B11%5D/modmadness-pt3)).
+  * This series covers how you can and should think about interactions, mediators, and moderators. After building you up to it, Brauer uses some simulated data to decompose the total effect into direct and indirect effects.
 * Lowe, Will. [_Collider Bias (Complimentary)_](https://www.youtube.com/watch?v=m56YEkkWYzI).
   * An interesting talk about collider bias. Some usual examples about why collider bias is a problem, then a shift into why it may not always be or why it can be beneficial. Worth thinking about.
 * Norris, Pippa. [_The Cultural Roots of Democratic Backsliding_](https://www.youtube.com/watch?v=Gva_AjvU1XA&t=1234s).
