@@ -1,0 +1,58 @@
+---
+layout: post
+title:  "Things I read in 2024 (and some plans for 2025)"
+date:   2025-01-01 20:00:00 -0500
+categories: blog
+usemathjax: true
+---
+
+Taking inspiration from [Childers](https://donskerclass.github.io/post/papers-2024/), I figured I would share some things I enjoyed this year. You may find these interesting, but for me it's just more of a way to track some references I keep sharing with everyone. If this doesn't interest you, that's fine. 
+
+While this has been another year where I read a bunch of stuff that interests me, I haven't kept as careful track as previous years, but that's life. So without further rambling, here's a list of stuff I enjoyed in 2024, in alphabetical order.
+
+# Books
+* Bonifay, Wes. [_Multidimesional Item Response Theory_](https://collegepublishing.sagepub.com/products/multidimensional-item-response-theory-1-257740). (2020).
+  * A nice short introduction to MIRT models. Bonifay covers the basic approaches and explains some of the problems you may encounter. As a side effect, it has strengthened my conviction that we are usually not measuring what we think we are measuring, especially when we ask survey questions. Pairs well with [Jonathan Templin's course](https://jonathantemplin.github.io/MultidimensionalMeasurementModels2023/) on multidimensional measurement models.
+* Ding, Peng. [_A First Course in Causal Inference_](https://www.routledge.com/A-First-Course-in-Causal-Inference/Ding/p/book/9781032758626). (2024). 
+  * A great book that covers a variety of causal inference scenarios. Spends a lot of time on randomized experiments, which helps build the intuition and understanding needed for later approaches. If you don't feel like paying for the print version, you can find a version on [arXiv](https://arxiv.org/abs/2305.18793).
+* Huber, Martin. [_Causal Analysis_](https://mitpress.mit.edu/9780262545914/causal-analysis/). (2023).
+  * Another great book on causal inference. Covers a variety of approaches, and pairs well with _A First Course in Causal Inference_. 
+* Norris, Pippa and Roger Inglehart. [_Cultural Backlash: Trump, Brexit, and Authoritarian Populism_](https://www.cambridge.org/core/books/cultural-backlash/3C7CB32722C7BB8B19A0FC005CAFD02B). (2019).
+  * Read this after the 2024 election in the US as part of my (still unsuccessful) attempt to understand why people vote the way they do. The book cover European countries more than the US, with the evidence presented being somewhat compelling. I'm not a big fan of their modelling, but I still think they are right on the whole. 
+* Rosenbaum, Paul. [_Observation and Experiment: An introduction to Causal Inference_](https://www.hup.harvard.edu/books/9780674241633). (2019).
+  * Covers some of the same topics as _A First Course in Causal Inference_ and _Causal Analysis_, and adds some other stuff to think about. I liked his explication of elaborate theories.
+* Wilson, Mark. [_Constructing Measures: An Item Response Modelling Approach_](https://www.routledge.com/Constructing-Measures-An-Item-Response-Modeling-Approach/Wilson/p/book/9781032261683). (2023).
+  * A good book that approaches scale development from conception to measurement. As the title suggests, it's focused on IRT (and the Rasch model) in particular.
+
+# Papers
+* Bailey, Drew H., Alexander J. Jung, Adriene M. Beltz, Markus I. Eronen, Christian Gische, Ellen L. Hamaker, Konrad P. Kording et al. “[Causal inference on human behaviour.](https://doi.org/10.1038/s41562-024-01939-z)” _Nature Human Behaviour_ 8, no. 8 (2024): 1448-1459.
+  * Covers why it is so hard to conduct causal inference on human behaviour. It's not an exhaustive list of reasons, but it is nonetheless fairly comprehensive.
+* Bulbulia, Joseph A. "Methods in Causal Inference". (2024). [Part 1](https://www.cambridge.org/core/journals/evolutionary-human-sciences/article/methods-in-causal-inference-part-1-causal-diagrams-and-confounding/E734F72109F1BE99836E268DF3AA0359), [part 2](https://www.cambridge.org/core/journals/evolutionary-human-sciences/article/methods-in-causal-inference-part-2-interaction-mediation-and-timevarying-treatments/D7FD95D3ED64FE0FBBEC37AC6CEAFBC1), [part 3](https://www.cambridge.org/core/journals/evolutionary-human-sciences/article/methods-in-causal-inference-part-3-measurement-error-and-external-validity-threats/4D35FFDECF32B2EFF7557EC26075175F), and [part 4](https://www.cambridge.org/core/journals/evolutionary-human-sciences/article/methods-in-causal-inference-part-4-confounding-in-experiments/570D60A5FCCA007B55427384818C368E).
+  * This is a four part series, and I am too lazy to list each one indiviudally. This is very good introduction to using DAGs. The articles are long and comprehensive, with great references lists. 
+* D’Agostino McGowan, Lucy, Travis Gerke, and Malcolm Barrett. "[Causal inference is not just a statistics problem](https://www.tandfonline.com/doi/full/10.1080/26939169.2023.2276446)." _Journal of Statistics and Data Science Education_ 32, no. 2 (2024): 150-155.
+  * It's hard to recover a causal effect if you don't understand the data-generating process.
+* Matthay, Ellicott C., and M. Maria Glymour. “[A graphical catalog of threats to validity: Linking social science with epidemiology](https://journals.lww.com/epidem/fulltext/2020/05000/A_Graphical_Catalog_of_Threats_to_Validity_.11.aspx).” _Epidemiology_ 31, no. 3 (2020): 376-384.
+  * A nice catalogue of threats to validity, explained with DAGs.
+* Miller, Douglas L., Na’ama Shenhav, and Michel Grosz. "[Selection into identification in fixed effects models, with application to Head Start](https://jhr.uwpress.org/content/58/5/1523.abstract)." _Journal of Human Resources_ 58, no. 5 (2023): 1523-1566.
+  * Estimates from Fixed Effects models may induce selection bias in some circumstances. Not exactly something you want.
+* Stevenson, Megan. "[Cause, Effect, and the Structure of the Social World](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4445710)". (2024). _Boston University Law Review_ 103, no. 7. 2001-2047.
+  * Argues that social change is hard to engineer. While the focus is on criminology, the critiques probably apply more broadly.
+
+# Video lectures and other stuff
+* Lowe, Will. [_Collider Bias (Complimentary)_](https://www.youtube.com/watch?v=m56YEkkWYzI).
+  * An interesting talk about collider bias. Some usual examples about why collider bias is a problem, then a shift into why it may not always be or why it can be beneficial. Worth thinking about.
+* Norris, Pippa. [_The Cultural Roots of Democratic Backsliding_](https://www.youtube.com/watch?v=Gva_AjvU1XA&t=1234s).
+  * A lecture at Carelton PoliSci about her book, _Cultural Backlash_. A good overview of her main arguments. Worth your time if you don't want to read the entire book.
+* Rahmstorf, Stefan. [_Is the Atlantic Overturning Circulation Approaching a Tipping Point?_](https://www.youtube.com/watch?v=HX7wAsdSE60&t=10s).
+  * An interesting talk about the AMOC and what it could mean if it collapses. Climate change may not affect parts of the world in the way you think. Well worth the time.
+* Templin, Jonathan. [_Multimensional Measurement Models_](https://www.youtube.com/playlist?list=PLSmMs4UgmSMhVd66KyC7O9hU9ZPl6qskk). (2023). YouTube Playlist.
+  * A series of 16 lectures (some nearly 3 hours long!) that covers his class at the University of Iowa. You can find the syllabus and other things related ot his class [here](https://jonathantemplin.github.io/MultidimensionalMeasurementModels2023/). I came across these after watching his lectures on [Bayesian Psychometric Modelling](https://www.youtube.com/playlist?list=PLSmMs4UgmSMicdHrfV3_dc41XOm7l2k80). 
+
+
+# Plans for 2025
+I naturally expect these to fall by the wayside or be superceded by things that attract my interest. But until then, here's the plan. In no particular order:
+* Read [_Patterns, Predictions, and Actions: A Story about Machine Learning_](https://mlstory.org/).
+* Learn more about probabilistic graphical models and [Bayesian Networks](https://www.youtube.com/playlist?list=PLlDG_zCuBub6ywAIrM1DfJp8xaeVjyvwx).
+* Read [_The Elements of Statistical Learning: Data Mining, Inference, and Prediction_](https://hastie.su.domains/ElemStatLearn/).
+* Go through Melissa Dell's course on [deep learning for economists](https://econdl.github.io/).
+* Learn more about [Gaussian processes](https://gaussianprocess.org/gpml/).
